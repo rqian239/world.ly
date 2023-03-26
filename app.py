@@ -1,30 +1,33 @@
 import dash
+from dash import dash_table
+import cx_Oracle
 from dash import dcc
 from dash import html
-import cx_Oracle
+import pandas as pd
 
 app = dash.Dash(__name__)
 
-conn = cx_Oracle.connect(user='williamsobczak', password='REBY7TpizLTdOp5dZHa9qJS0', 
-                         dsn=cx_Oracle.makedsn('oracle.cise.ufl.edu', '1521', 
+conn = cx_Oracle.connect(user='williamsobczak', password='REBY7TpizLTdOp5dZHa9qJS0',
+                         dsn=cx_Oracle.makedsn('oracle.cise.ufl.edu', '1521',
                                               sid='orcl'))
 cursor = conn.cursor()
 sql_query = 'SELECT * FROM country FETCH FIRST 20 ROWS ONLY'
 cursor.execute(sql_query)
 results = cursor.fetchall()
+
+df = pd.DataFrame(results, columns=[desc[0] for desc in cursor.description])
 cursor.close()
 conn.close()
 
 app.layout = html.Div([
-    html.H1('Oracle SQL Server Connection'),
-    html.Table([
-        html.Thead(html.Tr([html.Th(col) for col in results[0]])),
-        html.Tbody([
-            html.Tr([
-                html.Td(results[i][j]) for j in range(len(results[0]))
-            ]) for i in range(len(results))
-        ])
-    ])
+    html.H1('world.ly'),
+    dash_table.DataTable(
+        id='table',
+        columns=[{"name": i, "id": i} for i in df.columns],
+        data=df.to_dict('records'),
+        style_table={'width': '50%'},
+        style_cell={'textAlign': 'left', 'fontSize': 14}
+    )
 ])
 
 if __name__ == '__main__':
