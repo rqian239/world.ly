@@ -22,7 +22,7 @@
         pip3 install dash dash-renderer dash-html-components dash-core-components
 
 
-<br >
+
 
 ## **Running On Local Host**
 
@@ -35,13 +35,13 @@
         python3 app.py
 4. Open http://127.0.0.1:8050/ on a web browser
    
-   <br />
+
 
 ### **UFL CISE Oracle Database Server Used**
 Username: williamsobczak <br />
 Password= REBY7TpizLTdOp5dZHa9qJS0
 
-<br />
+
 
 ### **Credits:**
 Created by Group 2 
