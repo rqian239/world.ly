@@ -1,5 +1,5 @@
 from modules import *
-from home_page import home_page
+from pages.home_page import home_page
 
 # Themes? Try FLATLY, LUX, QUARTZ
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
