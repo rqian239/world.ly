@@ -1,8 +1,10 @@
 from modules import *
 from pages.home_page import home_page
+from pages.about_page import about_page
 
 # Themes? Try FLATLY, LUX, QUARTZ
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
+app.config.suppress_callback_exceptions = True
 app.title = 'world.ly'
 
 # These two lines of code are needed for the Oracle client to work on my Windows machine. If you are on windows,
@@ -35,7 +37,21 @@ conn.close()
 #     )
 # ])
 
-app.layout = home_page()
+app.layout = html.Div([
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')
+])
+
+@app.callback(
+    Output('page-content', 'children'),
+    [Input('url', 'pathname')])
+def display_page(pathname):
+    if pathname == '/':
+        return home_page()
+    elif pathname == '/about':
+        return about_page()
+    else:
+        return home_page()
 
 if __name__ == '__main__':
     app.run()

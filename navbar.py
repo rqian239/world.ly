@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 def navbar():
     link_style = {'color': 'white'}
     nav_items = [
-        ("Info Page", "/info_page"),
+        ("Home", "/"),
         ("About", "/about"),
         ("How to Use", "/how_to_use"),
         ("Start", "/app"),
