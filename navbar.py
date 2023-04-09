@@ -6,7 +6,7 @@ def navbar():
     nav_items = [
         ("Home", "/"),
         ("About", "/about"),
-        ("How to Use", "/how_to_use"),
+        ("How to Use", "/how_to"),
         ("Start", "/app"),
     ]
 

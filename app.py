@@ -1,6 +1,8 @@
 from modules import *
 from pages.home_page import home_page
 from pages.about_page import about_page
+from pages.how_to_page import how_to_page
+from pages.app_page import app_page
 
 # Themes? Try FLATLY, LUX, QUARTZ
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
@@ -50,6 +52,10 @@ def display_page(pathname):
         return home_page()
     elif pathname == '/about':
         return about_page()
+    elif pathname == '/how_to':
+        return how_to_page()
+    elif pathname == '/app':
+        return app_page()
     else:
         return home_page()
 
