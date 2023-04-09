@@ -1,5 +1,9 @@
-from modules import *
+import dash
+import dash_bootstrap_components as dbc
+
+from dash import html
 from navbar import navbar
+
 
 nav = navbar()
 
