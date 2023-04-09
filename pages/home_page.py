@@ -15,8 +15,8 @@ body = dbc.Container(
                         html.P(
                             """\
                             Welcome to world.ly!
-                            This application allows to give you complex insights into global demographic data: world.ly
-                            lets you study notable trends for countries and metrics you choose. Explore and compare metrics from
+                            This application gives you the power to discover complex insights into global demographic data.\n world.ly
+                            allows you to study notable trends for the countries and metrics you choose. Explore and compare metrics from
                             various sectors like health, education, and economy."""
                         )
                     ],
