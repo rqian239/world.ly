@@ -1,5 +1,6 @@
 dash
-dash-bootstrap-components
+dash_bootstrap_components
 cx_Oracle
 pandas
 plotly
+navbar
