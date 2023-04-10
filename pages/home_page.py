@@ -4,12 +4,13 @@ import dash_bootstrap_components as dbc
 from dash import html
 from dash import dcc
 from navbar import navbar
+from footer import footer
 
 from dash_iconify import DashIconify
 
 
 nav = navbar()
-
+ftr = footer()
 
 body = dbc.Container(
     [
@@ -131,5 +132,5 @@ body = dbc.Container(
 
 
 def home_page():
-    layout = html.Div([nav, body])
+    layout = html.Div([nav, body, ftr])
     return layout
