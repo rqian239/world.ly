@@ -3,3 +3,4 @@ dash_bootstrap_components
 cx_Oracle
 pandas
 plotly
+dash-iconify

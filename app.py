@@ -13,6 +13,8 @@ from pages.about_page import about_page
 from pages.how_to_page import how_to_page
 from pages.app_page import app_page
 
+import ids
+
 # Themes? Try FLATLY, LUX, QUARTZ
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.config.suppress_callback_exceptions = True
@@ -49,13 +51,13 @@ conn.close()
 # ])
 
 app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content')
+    dcc.Location(id=ids.CURRENT_URL, refresh=False),
+    html.Div(id=ids.CURRENT_PAGE_CONTENT)
 ])
 
 @app.callback(
-    Output('page-content', 'children'),
-    [Input('url', 'pathname')])
+    Output(ids.CURRENT_PAGE_CONTENT, 'children'),
+    [Input(ids.CURRENT_URL, 'pathname')])
 def display_page(pathname):
     if pathname == '/':
         return home_page()
