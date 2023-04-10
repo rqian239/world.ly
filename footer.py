@@ -7,19 +7,53 @@ def footer():
 
     ftr = html.Div(
         dbc.Container(
-            dbc.Row(
-                dbc.Col(
-                    html.P([
-                        html.Span("Your Company or Name ", className="mr-2"),
-                        html.A("Privacy Policy", href="#", className="mr-2"),
-                        html.A("Terms of Service", href="#", className="mr-2"),
-                    ]),
-                    className="text-center mt-4"
-                )
-            ),
+            [
+                dbc.Row(
+                    [
+                        dbc.Col(
+                            html.Div([
+                                html.H5("world.ly", className="text-uppercase footer-title"),
+                            ]),
+                            className="centered"
+                        ),
+                    ],
+                    style={"margin-bottom": "30px"},
+                ),
+                dbc.Row(
+                    [
+                        dbc.Col(
+                            html.Div([
+                                html.H5("Quick Links", className="text-uppercase"),
+                                dbc.NavLink("Home", href="/", className = "footer-link"),
+                                dbc.NavLink("About", href="/about", className = "footer-link"),
+                                dbc.NavLink("How to Use", href="/how_to", className = "footer-link"),
+                                dbc.NavLink("Use world.ly", href="/app", className = "footer-link")                                
+                            ]),
+                            className="centered"
+                        ),
+                        dbc.Col(
+                            html.Div([
+                                html.P("Richard Qian"),
+                                html.P("William Sobczak"),
+                                html.P("Nikhil Pandya"),
+                                html.P("Nicholas Borowski"),
+                            ]),
+                            className="centered"
+                        ),
+                    ],
+                    className="justify-content-center"
+                ),
+                dbc.Row(
+                    [
+                        dbc.Col(
+                            html.P("❤️")
+                        )
+                    ],
+                    className="centered"
+                ),
+            ],
             fluid=True,
         ),
-        className="p-3 bg-light"
+        className="p-5 mt-5 bg-light"
     )
-
     return ftr

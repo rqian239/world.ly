@@ -21,6 +21,19 @@
     border-width: 8px;
 }
 
+.footer-link
+{
+    font-size: 20px;
+    text-decoration: underline;
+    line-height: 1.5;
+}
+
+.footer-title
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 p
 {
     font-size: 20px;
