@@ -2,6 +2,7 @@ import dash
 import dash_bootstrap_components as dbc
 
 from dash import html
+from dash import dcc
 from navbar import navbar
 
 
@@ -25,7 +26,7 @@ body = dbc.Container(
                             various sectors like health, education, and economy.""",
                             style={"font-size": "20px"},
                         ),
-                        html.Button("Get Started", id="get-started-button", className="btn btn-lg btn-primary", type="button")
+                        dcc.Link(html.Button("Get Started", id="get-started-button", className="btn btn-lg btn-primary", type="button"), href="/app", refresh=True),
                         
                     ],
                     md=6,
