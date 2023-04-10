@@ -136,10 +136,10 @@ body = dbc.Container(
         ),
     ],
     # mt-4 adds margin to the top
-    className="mt-4",
+    className="mt-4 body-flex-wrapper",
 )
 
 
 def home_page():
-    layout = html.Div([nav, body, ftr])
+    layout = html.Div([nav, body, ftr], className="make-footer-stick")
     return layout

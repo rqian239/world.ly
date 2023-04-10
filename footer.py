@@ -49,11 +49,12 @@ def footer():
                             html.P("❤️")
                         )
                     ],
-                    className="centered"
+                    className="centered",
                 ),
             ],
             fluid=True,
         ),
-        className="p-5 mt-5 bg-light"
+        className="p-5 mt-5 bg-light",
+        style={"margin-top": "30px"},
     )
     return ftr
