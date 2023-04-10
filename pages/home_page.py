@@ -27,7 +27,6 @@ body = dbc.Container(
                             This application gives you the power to discover complex insights into global demographic data.\n world.ly
                             allows you to study notable trends for the countries and metrics you choose. Explore and compare metrics from
                             various sectors like health, education, and economy.""",
-                            style={"font-size": "20px"},
                         ),
                         # Div for get started button
                         html.Div(
@@ -110,12 +109,6 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        
-                    ],
-                    className="centered",
-                ),
-                dbc.Col(
-                    [
                         html.H2("Human Geography made simple."),
                         html.Br(),
                         # home page blurb
@@ -126,9 +119,10 @@ body = dbc.Container(
                         ),
                         
                     ],
+                    className="centered",
                 )
             ],
-            style={"margin-top": "100px"},
+            style={"margin-top": "100px", "margin-bottom": "100px"},
         ),
     ],
     # mt-4 adds margin to the top
