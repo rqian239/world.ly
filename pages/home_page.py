@@ -26,7 +26,7 @@ body = dbc.Container(
                             various sectors like health, education, and economy.""",
                             style={"font-size": "20px"},
                         ),
-                        dcc.Link(html.Button("Get Started", id="get-started-button", className="btn btn-lg btn-primary", type="button"), href="/app", refresh=True),
+                        dcc.Link(html.Button("Get Started", id="get-started-button", className="btn btn-lg btn-primary", type="button"), href="/app"),
                         
                     ],
                     md=6,
