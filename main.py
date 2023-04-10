@@ -16,6 +16,7 @@ from pages.app_page import app_page
 import ids
 
 # Themes? Try FLATLY, LUX, QUARTZ
+# https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.config.suppress_callback_exceptions = True
 app.title = 'world.ly'
