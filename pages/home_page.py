@@ -14,18 +14,30 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.H1("world.ly"),
+                        html.H1("world.ly", style={"font-size": "60px"}),
+                        html.Br(),
                         # home page blurb
                         html.P(
                             """\
                             Welcome to world.ly!
                             This application gives you the power to discover complex insights into global demographic data.\n world.ly
                             allows you to study notable trends for the countries and metrics you choose. Explore and compare metrics from
-                            various sectors like health, education, and economy."""
-                        )
+                            various sectors like health, education, and economy.""",
+                            style={"font-size": "20px"},
+                        ),
+                        html.Button("Get Started", id="get-started-button", className="btn btn-lg btn-primary", type="button")
+                        
                     ],
-                    md=4,
-                )
+                    md=6,
+                ),
+                dbc.Col(
+                    [
+                        html.Img(src="https://media.discordapp.net/attachments/1073377990844624919/1094767143884697610/earth.gif",
+                                 width="80%",
+                                 height="auto")
+                    ],
+                    md=6,
+                ),
             ]
         )
     ],
