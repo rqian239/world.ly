@@ -102,7 +102,16 @@ body = dbc.Container(
                         )
                     ],
                 ),
-
+                dbc.Col(
+                    [
+                        html.H3("Energy"),
+                        DashIconify(
+                            icon="mdi:energy-circle",
+                            width=50,
+                            height=50,
+                        )
+                    ],
+                ),
             ],
             className="centered",
         ),
