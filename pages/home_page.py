@@ -121,7 +121,6 @@ body = dbc.Container(
                     [
                         html.H2("Human Geography made simple."),
                         html.Br(),
-                        # home page blurb
                         html.P(
                             """\
                                 Use world.ly to visualize hundreds of thousands of demographic data points.
