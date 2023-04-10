@@ -54,7 +54,8 @@ body = dbc.Container(
                         html.Img(
                             src="assets\images\earth.gif",
                             width="80%",
-                            height="auto"
+                            height="auto",
+                            className="spinning-globe-gif"
                         )
                     ],
                     className="centered",

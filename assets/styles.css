@@ -14,3 +14,9 @@
     font-size: 60px;
     font-weight: bold;
 }
+
+.spinning-globe-gif
+{
+    border-style: outset;
+    border-width: 8px;
+}
