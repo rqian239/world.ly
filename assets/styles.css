@@ -1,0 +1,55 @@
+.centered
+{
+    text-align: center;
+}
+
+.get-started-button
+{
+    text-align: center;
+    min-width: 50%;
+}
+
+.home-page-title
+{
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.spinning-globe-gif
+{
+    border-style: outset;
+    border-width: 8px;
+}
+
+.footer-link
+{
+    font-size: 20px;
+    text-decoration: underline;
+    line-height: 1.5;
+}
+
+.footer-title
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* This is for making the footer stick to the bottom of the page */
+.body-flex-wrapper
+{
+    flex-grow: 1;
+}
+
+.make-footer-stick
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
+p
+{
+    font-size: 20px;
+}

@@ -1,34 +1,46 @@
 import dash
-from dash import dash_table
 import cx_Oracle
+import pandas as pd
+import dash_bootstrap_components as dbc
+
 from dash import dcc
 from dash import html
-import pandas as pd
+from dash import dash_table
+from dash.dependencies import Input, Output
 
-app = dash.Dash(__name__)
+from pages.home_page import home_page
+from pages.about_page import about_page
+from pages.how_to_page import how_to_page
+from pages.app_page import app_page
 
-conn = cx_Oracle.connect(user='williamsobczak', password='REBY7TpizLTdOp5dZHa9qJS0',
-                         dsn=cx_Oracle.makedsn('oracle.cise.ufl.edu', '1521',
-                                              sid='orcl'))
-cursor = conn.cursor()
-sql_query = 'SELECT * FROM country FETCH FIRST 20 ROWS ONLY'
-cursor.execute(sql_query)
-results = cursor.fetchall()
+import ids
 
-df = pd.DataFrame(results, columns=[desc[0] for desc in cursor.description])
-cursor.close()
-conn.close()
+# Themes? Try FLATLY, LUX, QUARTZ
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
+app.config.suppress_callback_exceptions = True
+app.title = 'world.ly'
+
 
 app.layout = html.Div([
-    html.H1('world.ly'),
-    dash_table.DataTable(
-        id='table',
-        columns=[{"name": i, "id": i} for i in df.columns],
-        data=df.to_dict('records'),
-        style_table={'width': '50%'},
-        style_cell={'textAlign': 'left', 'fontSize': 14}
-    )
+    dcc.Location(id=ids.CURRENT_URL, refresh=False),
+    html.Div(id=ids.CURRENT_PAGE_CONTENT)
 ])
 
+@app.callback(
+    Output(ids.CURRENT_PAGE_CONTENT, 'children'),
+    [Input(ids.CURRENT_URL, 'pathname')])
+def display_page(pathname):
+    if pathname == '/':
+        return home_page()
+    elif pathname == '/about':
+        return about_page()
+    elif pathname == '/how_to':
+        return how_to_page()
+    elif pathname == '/app':
+        return app_page()
+    else:
+        return home_page()
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run()
+    # app.run_server(debug=True)
