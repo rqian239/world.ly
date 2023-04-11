@@ -3,8 +3,8 @@ import dash_bootstrap_components as dbc
 
 from dash import html
 
-from navbar import navbar
-from footer import footer
+from components.navbar import navbar
+from components.footer import footer
 
 nav = navbar()
 ftr = footer()

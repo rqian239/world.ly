@@ -5,8 +5,8 @@ import dash_bootstrap_components as dbc
 
 from dash import html
 from dash import dash_table
-from navbar import navbar
-from footer import footer
+from components.navbar import navbar
+from components.footer import footer
 
 # These two lines of code are needed for the Oracle client to work on my Windows machine. If you are on windows,
     # replace the path with the path to your Oracle Instant Client (the path you added as an environment variable).
