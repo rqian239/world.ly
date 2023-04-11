@@ -139,6 +139,6 @@ body = dbc.Container(
 )
 
 
-def home_page():
+def home_page(app: dash.Dash):
     layout = html.Div([nav, body, ftr], className="make-footer-stick")
     return layout
