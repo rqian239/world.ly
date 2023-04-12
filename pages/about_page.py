@@ -93,6 +93,29 @@ body = dbc.Container(
                         html.Br(),
                         html.H3("Metrics Used"),
                         html.Hr(),
+                        html.P(
+                            """\
+                            Description of sectors chosen and corresponding metrics. Explain the relevance of metrics.
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉ Sector 1 (Economy): Metrics in Sector 1 (GDP, average income, inflation, etc.)
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉ Sector 2 (Health):  Metrics in Sector 2
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉ Sector 3 (Population): Metrics in Sector 3
+                            """,
+                        ),
                     ],
                 ),
             ],
@@ -107,6 +130,29 @@ body = dbc.Container(
                         html.Br(),
                         html.H3("Data Visualization and Trend Analysis"),
                         html.Hr(),
+                        html.P(
+                            """\
+                            Visualize trends with world.ly. Generate graphs, charts, and maps of your selected data. Description of the visualization tools here. Describe the kinds of charts and graphs.
+                            """,
+                        ),
+                        html.Br(), 
+                        html.P(
+                            """\
+                            ◉ Line Graphs
+                            """,
+                        ),
+                        html.Br(), 
+                        html.P(
+                            """\
+                            ◉ Tables
+                            """,
+                        ),
+                        html.Br(), 
+                        html.P(
+                            """\
+                            ◉ Maps
+                            """,
+                        ),
                     ],
                     className="left",
                 ),
