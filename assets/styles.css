@@ -3,6 +3,16 @@
     text-align: center;
 }
 
+.right
+{
+    text-align: right;
+}
+
+.left
+{
+    text-align: left;
+}
+
 .get-started-button
 {
     text-align: center;
