@@ -19,6 +19,12 @@
     min-width: 50%;
 }
 
+.get-started-button-about-page
+{
+    text-align: center;
+    min-width: 20%;
+}
+
 .home-page-title
 {
     font-size: 60px;

@@ -26,6 +26,21 @@ body = dbc.Container(
                             """\
                             world.ly is an easy-to-use web application that displays demographic data and allows you to study their trends.
                             """
+                        ),
+                        html.Br(),
+                        html.Div(
+                            children=[
+                                dcc.Link(
+                                    html.Button(
+                                        "Get Started",
+                                        id="get-started-button-about-page",
+                                        className="btn btn-lg btn-primary get-started-button-about-page",
+                                        type="button"
+                                    ),
+                                    href="/app"
+                                )
+                            ],
+                            className="centered",
                         )
                     ],
                     className="centered",
@@ -43,47 +58,44 @@ body = dbc.Container(
                         html.Br(),
                         html.Br(),
                         html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
                         # Search for icons here: https://icon-sets.iconify.design/
                         # Replace the name of the icon in the icon="" field
                         DashIconify(
                             icon="material-symbols:health-metrics",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
 
                         DashIconify(
                             icon="ph:piggy-bank-duotone",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
                         
                         DashIconify(
                             icon="mdi:energy-circle",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
 
                         html.Br(),
 
                         DashIconify(
                             icon="material-symbols:emoji-people-rounded",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
 
                         DashIconify(
                             icon="mdi:education-outline",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
 
                         DashIconify(
                             icon="ion:skull-outline",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         )
                     ],
                     className="centered",
@@ -172,20 +184,20 @@ body = dbc.Container(
                         # Replace the name of the icon in the icon="" field
                         DashIconify(
                             icon="mdi:graph-line",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
 
                         DashIconify(
                             icon="ph:globe-hemisphere-west-fill",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
                         
                         DashIconify(
                             icon="material-symbols:table-chart-outline",
-                            width=50,
-                            height=50,
+                            width=100,
+                            height=100,
                         ),
                     ],
                     className="centered",
