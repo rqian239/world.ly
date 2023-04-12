@@ -38,6 +38,14 @@ body = dbc.Container(
                     [   
                         html.Br(),
                         html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
                         # Search for icons here: https://icon-sets.iconify.design/
                         # Replace the name of the icon in the icon="" field
                         DashIconify(
@@ -56,9 +64,29 @@ body = dbc.Container(
                             icon="mdi:energy-circle",
                             width=50,
                             height=50,
+                        ),
+
+                        html.Br(),
+
+                        DashIconify(
+                            icon="material-symbols:emoji-people-rounded",
+                            width=50,
+                            height=50,
+                        ),
+
+                        DashIconify(
+                            icon="mdi:education-outline",
+                            width=50,
+                            height=50,
+                        ),
+
+                        DashIconify(
+                            icon="ion:skull-outline",
+                            width=50,
+                            height=50,
                         )
                     ],
-                    className="left",
+                    className="centered",
                 ),
                 dbc.Col(
                     [   html.Br(),
@@ -66,6 +94,55 @@ body = dbc.Container(
                         html.H3("Metrics Used"),
                         html.Hr(),
                     ],
+                ),
+            ],
+        ),
+        dbc.Row(
+            [  
+                dbc.Col(
+                    [   html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.H3("Data Visualization and Trend Analysis"),
+                        html.Hr(),
+                    ],
+                    className="left",
+                ),
+                dbc.Col(
+                    [   
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        # Search for icons here: https://icon-sets.iconify.design/
+                        # Replace the name of the icon in the icon="" field
+                        DashIconify(
+                            icon="mdi:graph-line",
+                            width=50,
+                            height=50,
+                        ),
+
+                        DashIconify(
+                            icon="ph:globe-hemisphere-west-fill",
+                            width=50,
+                            height=50,
+                        ),
+                        
+                        DashIconify(
+                            icon="material-symbols:table-chart-outline",
+                            width=50,
+                            height=50,
+                        ),
+                    ],
+                    className="centered",
                 ),
             ],
         ),
