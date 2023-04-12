@@ -15,14 +15,17 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.H1("About"),
+                        html.Br(),
+                        html.H1("Learn More About world.ly"),
+                        html.Br(),
                         # home page blurb
                         html.P(
                             """\
-                            This is the About Page content."""
+                            world.ly is an easy-to-use web application that displays demographic data and allows you to study their trends.
+                            """
                         )
                     ],
-                    md=4,
+                    className="centered",
                 )
             ]
         )
