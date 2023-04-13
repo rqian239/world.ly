@@ -2,8 +2,8 @@ import dash
 import dash_bootstrap_components as dbc
 
 from dash import html
-from navbar import navbar
-from footer import footer
+from components.navbar import navbar
+from components.footer import footer
 
 
 nav = navbar()
@@ -31,6 +31,6 @@ body = dbc.Container(
 )
 
 
-def how_to_page():
+def how_to_page(app: dash.Dash):
     layout = html.Div([nav, body, ftr], className="make-footer-stick")
     return layout

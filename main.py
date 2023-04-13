@@ -16,6 +16,7 @@ from pages.app_page import app_page
 import ids
 
 # Themes? Try FLATLY, LUX, QUARTZ
+# https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.config.suppress_callback_exceptions = True
 app.title = 'world.ly'
@@ -31,15 +32,15 @@ app.layout = html.Div([
     [Input(ids.CURRENT_URL, 'pathname')])
 def display_page(pathname):
     if pathname == '/':
-        return home_page()
+        return home_page(app)
     elif pathname == '/about':
-        return about_page()
+        return about_page(app)
     elif pathname == '/how_to':
-        return how_to_page()
+        return how_to_page(app)
     elif pathname == '/app':
-        return app_page()
+        return app_page(app)
     else:
-        return home_page()
+        return home_page(app)
 
 if __name__ == '__main__':
     app.run()

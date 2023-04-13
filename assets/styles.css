@@ -3,10 +3,26 @@
     text-align: center;
 }
 
+.right
+{
+    text-align: right;
+}
+
+.left
+{
+    text-align: left;
+}
+
 .get-started-button
 {
     text-align: center;
     min-width: 50%;
+}
+
+.get-started-button-about-page
+{
+    text-align: center;
+    min-width: 20%;
 }
 
 .home-page-title
