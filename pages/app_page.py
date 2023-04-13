@@ -116,6 +116,7 @@ body = dbc.Container(
 fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
 fig.update_xaxes(title_text=(reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
 fig.update_yaxes(title_text=(reformat_data_label("PER_CAPITA_INCOME")))
+# fig.update_layout(width=1500, height=1000)
 
 data_visualization = dbc.Container(
     [
@@ -128,15 +129,17 @@ data_visualization = dbc.Container(
                                 dcc.Graph(
                                     id='data-visualization',
                                     figure=fig
-                                )
-                            ]
+                                ),
+                            ],
+                            # className="center-content"
                         )
                     ]
                 )
             ]
-        )
+        ),
     ]
 )
+
 
 
 def app_page(app: dash.Dash):
