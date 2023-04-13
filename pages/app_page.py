@@ -39,7 +39,9 @@ def reformat_data_label(label):
 nav = navbar()
 ftr = footer()
 
-df = query_db('SELECT * FROM adultmortality FETCH FIRST 20 ROWS ONLY')
+query_string = '(SELECT year, life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM ( SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC ) ) WHERE YEAR > 1950 AND YEAR < 2020 ) ORDER BY life_expectancy_change_compared_to_last_5_years FETCH FIRST 5 ROWS ONLY) UNION ALL (SELECT year, life_expectancy_change_compared_to_last_5_years FROM (SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM (SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM (SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC)) WHERE YEAR > 1950 AND YEAR < 2020) ORDER BY life_expectancy_change_compared_to_last_5_years DESC FETCH FIRST 5 ROWS ONLY)'
+
+df = query_db(query_string)
 
 body = dbc.Container(
     [
@@ -70,9 +72,9 @@ body = dbc.Container(
     className="mt-4 body-flex-wrapper",
 )
 
-fig = px.line(df, x="YEAR", y="BOTH_SEXES_MORTALITY_RATE", title='Adult Mortality Rate', color = 'COUNTRY')
-fig.update_xaxes(title_text=(reformat_data_label("YEAR")))
-fig.update_yaxes(title_text=(reformat_data_label("BOTH_SEXES_MORTALITY_RATE")))
+# fig = px.line(df, x="YEAR", y="BOTH_SEXES_MORTALITY_RATE", title='Adult Mortality Rate', color = 'COUNTRY')
+# fig.update_xaxes(title_text=(reformat_data_label("YEAR")))
+# fig.update_yaxes(title_text=(reformat_data_label("BOTH_SEXES_MORTALITY_RATE")))
 
 data_visualization = dbc.Container(
     [
@@ -82,10 +84,10 @@ data_visualization = dbc.Container(
                     [
                         html.Div(
                             [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=fig
-                                )
+                                # dcc.Graph(
+                                #     id='data-visualization',
+                                #     figure=fig
+                                # )
                             ]
                         )
                     ]
