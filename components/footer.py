@@ -37,7 +37,8 @@ def footer():
                                 html.Br(),
                                 html.P("🌎🌍🌏"),
                             ]),
-                            className="centered"
+                            className="centered",
+                            md=2
                         ),
                         dbc.Col(
                             html.Div([
