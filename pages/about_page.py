@@ -51,58 +51,17 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [   
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        # Search for icons here: https://icon-sets.iconify.design/
-                        # Replace the name of the icon in the icon="" field
-                        DashIconify(
-                            icon="material-symbols:health-metrics",
-                            width=100,
-                            height=100,
-                        ),
-
-                        DashIconify(
-                            icon="ph:piggy-bank-duotone",
-                            width=100,
-                            height=100,
-                        ),
-                        
-                        DashIconify(
-                            icon="mdi:energy-circle",
-                            width=100,
-                            height=100,
-                        ),
-
-                        html.Br(),
-
-                        DashIconify(
-                            icon="material-symbols:emoji-people-rounded",
-                            width=100,
-                            height=100,
-                        ),
-
-                        DashIconify(
-                            icon="mdi:education-outline",
-                            width=100,
-                            height=100,
-                        ),
-
-                        DashIconify(
-                            icon="ion:skull-outline",
-                            width=100,
-                            height=100,
+                        html.Img(
+                        src="assets\images\elements-silhouette-pixel-world-map-pixelated-vector.jpg",
+                        width="100%",
+                        height="auto",
+                        className=""
                         )
                     ],
                     className="centered",
                 ),
                 dbc.Col(
-                    [   html.Br(),
-                        html.Br(),
+                    [
                         html.H3("Metrics Used"),
                         html.Hr(),
                         html.P(
@@ -113,24 +72,25 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉ Sector 1 (Economy): Metrics in Sector 1 (GDP, average income, inflation, etc.)
+                            ◉   Sector 1 (Economy): Metrics in Sector 1 (GDP, average income, inflation, etc.)
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉ Sector 2 (Health):  Metrics in Sector 2
+                            ◉   Sector 2 (Health):  Metrics in Sector 2
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉ Sector 3 (Population): Metrics in Sector 3
+                            ◉   Sector 3 (Population): Metrics in Sector 3
                             """,
                         ),
                     ],
                 ),
             ],
+            style={"margin-top": "100px"},
         ),
         dbc.Row(
             [  
@@ -150,19 +110,19 @@ body = dbc.Container(
                         html.Br(), 
                         html.P(
                             """\
-                            ◉ Line Graphs
+                            ◉   Line Graphs
                             """,
                         ),
                         html.Br(), 
                         html.P(
                             """\
-                            ◉ Tables
+                            ◉   Tables
                             """,
                         ),
                         html.Br(), 
                         html.P(
                             """\
-                            ◉ Maps
+                            ◉   Maps
                             """,
                         ),
                     ],
