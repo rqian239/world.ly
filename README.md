@@ -54,7 +54,7 @@
 16. If prompted to, add any new paths in Enviroment System Variables, then re-run the last step
 
 
-## **Running On Local Host**
+## **Running On Local Host for Windows**
 
 1. Download ufl VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
 
@@ -98,7 +98,7 @@
 
 
 
-## **Running On Local Host**
+## **Running On Local Host For Mac**
 
 1. Connect to ufl VPN.
 2. Set environment variable
