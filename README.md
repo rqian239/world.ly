@@ -19,7 +19,7 @@
             python --version
     - If the version shows, Python has been installed correctly
     
-4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.htmlhttps://www.oracle.com/database/technologies/instant-client/downloads.html)
+4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.html)
 
 5. After downloading the Oracle Instant Client, make a new folder called 'Oracle' in your local drive's 'Program Files' (C:\Program Files\Oracle)
 
