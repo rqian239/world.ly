@@ -33,6 +33,15 @@ def footer():
                         ),
                         dbc.Col(
                             html.Div([
+                                html.Br(),
+                                html.Br(),
+                                html.P("🌎🌍🌏"),
+                            ]),
+                            className="centered",
+                            md=2
+                        ),
+                        dbc.Col(
+                            html.Div([
                                 html.P("Richard Qian"),
                                 html.P("William Sobczak"),
                                 html.P("Nikhil Pandya"),
@@ -42,14 +51,6 @@ def footer():
                         ),
                     ],
                     className="justify-content-center"
-                ),
-                dbc.Row(
-                    [
-                        dbc.Col(
-                            html.P("❤️")
-                        )
-                    ],
-                    className="centered",
                 ),
             ],
             fluid=True,
