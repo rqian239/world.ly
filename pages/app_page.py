@@ -1,5 +1,4 @@
 import dash
-import cx_Oracle
 import pandas as pd
 import dash_bootstrap_components as dbc
 import plotly.express as px
@@ -11,31 +10,7 @@ from dash import dash_table
 from components.navbar import navbar
 from components.footer import footer
 
-def query_db(sql_query):
-    # These two lines of code are needed for the Oracle client to work on my Windows machine. If you are on windows,
-        # replace the path with the path to your Oracle Instant Client (the path you added as an environment variable).
-        # Otherwise, comment it out and disregard.
-    path_of_oracle_instant_client = r"D:\Program Files\Oracle\instantclient_21_9"
-    cx_Oracle.init_oracle_client(lib_dir=path_of_oracle_instant_client)
-
-    # Connect to Oracle Database
-    conn = cx_Oracle.connect(user='williamsobczak', password='REBY7TpizLTdOp5dZHa9qJS0',
-                            dsn=cx_Oracle.makedsn('oracle.cise.ufl.edu', '1521',
-                                                sid='orcl'))
-    cursor = conn.cursor()
-    cursor.execute(sql_query)
-    results = cursor.fetchall()
-
-    df = pd.DataFrame(results, columns=[desc[0] for desc in cursor.description])
-    cursor.close()
-    conn.close()
-
-    return df
-
-def reformat_data_label(label):
-    words = label.split('_')
-    formatted_words = [word.lower().capitalize() for word in words]
-    return ' '.join(formatted_words)
+import functions
 
 
 nav = navbar()
@@ -43,7 +18,7 @@ ftr = footer()
 
 #query_string = '(SELECT year, life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM ( SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC ) ) WHERE YEAR > 1950 AND YEAR < 2020 ) ORDER BY life_expectancy_change_compared_to_last_5_years FETCH FIRST 5 ROWS ONLY) UNION ALL (SELECT year, life_expectancy_change_compared_to_last_5_years FROM (SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM (SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM (SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC)) WHERE YEAR > 1950 AND YEAR < 2020) ORDER BY life_expectancy_change_compared_to_last_5_years DESC FETCH FIRST 5 ROWS ONLY)'
 query_string = '(SELECT education.entity, education.percentage percentage_with_tertiary_education, income.value per_capita_income FROM ShareOfThePopulationWithCompletedTertiaryEducation education, GrossNationalIncomePerCapita income WHERE education.code = income.code AND education.year = income.year AND education.year = 2010)'
-df = query_db(query_string)
+df = functions.query_db(query_string)
 
 body = dbc.Container(
     [
@@ -114,8 +89,8 @@ body = dbc.Container(
 # fig.update_yaxes(title_text=(reformat_data_label("BOTH_SEXES_MORTALITY_RATE")))
 
 fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
-fig.update_xaxes(title_text=(reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
-fig.update_yaxes(title_text=(reformat_data_label("PER_CAPITA_INCOME")))
+fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
+fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
 # fig.update_layout(width=1500, height=1000)
 
 data_visualization = dbc.Container(
