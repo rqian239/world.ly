@@ -58,7 +58,7 @@ scatter_fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_W
 scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
 scatter_fig.update_layout(width=1500, height=1000)
 
-scatter_plot_visualization = dbc.Container(
+scatter_plot_section = dbc.Container(
     [
     # Add dropdown and buttons here
         dbc.Row(
@@ -92,7 +92,7 @@ world_map_fig = px.scatter_geo(df, locations = 'CODE',
                      projection='orthographic')
 world_map_fig.update_layout(width=1500, height=1000)
 
-world_map_visualization = dbc.Container(
+world_map_section = dbc.Container(
     [
     # Add dropdown and buttons here
         dbc.Row(
@@ -122,5 +122,5 @@ world_map_visualization = dbc.Container(
 
 
 def app_page(app: dash.Dash):
-    layout = html.Div([nav, body, scatter_plot_visualization, world_map_visualization, ftr], className="make-footer-stick")
+    layout = html.Div([nav, body, scatter_plot_section, world_map_section, ftr], className="make-footer-stick")
     return layout
