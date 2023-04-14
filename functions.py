@@ -4,7 +4,7 @@ import pandas as pd
 # These two lines of code are needed for the Oracle client to work on my Windows machine. If you are on windows,
     # replace the path with the path to your Oracle Instant Client (the path you added as an environment variable).
     # Otherwise, comment it out and disregard.
-path_of_oracle_instant_client = r"C:\Program Files\Oracle\instantclient_21_9"
+path_of_oracle_instant_client = r"D:\Program Files\Oracle\instantclient_21_9"
 cx_Oracle.init_oracle_client(lib_dir=path_of_oracle_instant_client)
 
 def query_db(sql_query):
