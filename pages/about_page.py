@@ -59,7 +59,7 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.H2(f"Total number of data points (tuples) in our dataset: {total_num_tuples}"),
+                        html.H3(f"Total number of data points (tuples) in our dataset: {total_num_tuples}"),
                     ]
                 )
             ],
