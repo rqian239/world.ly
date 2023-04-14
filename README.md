@@ -1,7 +1,51 @@
 # world.ly
 
+## **Configuration Instructions For Windows**
 
-## **Configuration Instructions**
+1. Clone the 'world.ly' repository on your local device
+2. Install the latest version of Python from the Microsoft Store (Version 3.11 latest as of now)
+3. Add Python Installation path to Enviroment System Variables
+    a. Search for 'Edit the system enviroment variables'
+    b. Click 'Enviroment Variables' in the botton right corner
+    c. Then under 'System variables', double-click the 'Path' variable
+    d. Select 'New' in the top right corner
+    e Type the path of the python installation (i.e., C:\Program Files\Python311)
+    f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
+    g. To make sure Python has installed correctly, open a Command Prompt by typing 'Command Prompt' in the search bar
+    h. Then type
+        python --version
+    i. If the version shows, Python has been installed correctly
+4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.htmlhttps://www.oracle.com/database/technologies/instant-client/downloads.html)
+5. After downloading the Oracle Instant Client, make a new folder called 'Oracle' in your local drive's 'Program Files' (C:\Program Files\Oracle)
+6. Extract the contents of the Oracle Instant Client in the 'Oracle' folder (So, should have C:\Program Files\Oracle\instantclient_21_9)
+7. Add Oracle Instant Client to Enviroment System Variables
+    a. Search for 'Edit the system enviroment variables'
+    b. Click 'Enviroment Variables' in the botton right corner
+    c. Then under 'System variables', double-click the 'Path' variable
+    d. Select 'New' in the top right corner
+    e Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
+    f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
+10. Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+11. Open Visual Studio Installer and click the 'Available' tab
+12. Then install 'Visual Studio Community 2022' (latest year available)
+13. After installing open a new Command Prompt
+14. Navigate to the 'world.ly' repository (i.e., C:\world.ly)
+15. Run 
+    pip install -r requirements.txt
+16. If prompted to, add any new paths in Enviroment System Variables, then re-run the last step
+
+## **Running On Local Host**
+
+1. Download ufl VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
+2. Connect to ufl VPN by opening the Cisco AnyConnect Secure Mobility Client
+3. Type 'vpn.ufl.edu' in the bar if prompted to and insert ufl credentials
+4. Open a Command Prompt and navigate to the world.ly repository (i.e., C:\world.ly)
+5. Run
+    python main.py
+6. Open a web browser and type 'http://127.0.0.1:8050' in the URL 
+7. Have fun with world.ly!
+    
+## **Configuration Instructions For Mac**
 
 1. Install the latest version of Python (https://www.python.org/downloads/)
 2. Install pip     
@@ -26,7 +70,7 @@
 
 ## **Running On Local Host**
 
-1. Conect to ufl VPN.
+1. Connect to ufl VPN.
 2. Set environment variable
 
         export DYLD_LIBRARY_PATH="Instant Client Directory"
