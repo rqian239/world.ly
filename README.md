@@ -12,7 +12,7 @@
     - Then under 'System variables', double-click the 'Path' variable
     - Select 'New' in the top right corner
     - Type the path of the python installation (i.e., C:\Program Files\Python311)
-    - f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
+    - Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
     - To make sure Python has installed correctly, open a Command Prompt by typing 'Command Prompt' in the search bar
     - Then type
     
@@ -53,6 +53,7 @@
     
 16. If prompted to, add any new paths in Enviroment System Variables, then re-run the last step
 
+
 ## **Running On Local Host**
 
 1. Download ufl VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
@@ -70,6 +71,9 @@
 6. Open a web browser and type 'http://127.0.0.1:8050' in the URL 
 
 7. Have fun with world.ly!
+
+
+
     
 ## **Configuration Instructions For Mac**
 
