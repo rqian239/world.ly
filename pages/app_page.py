@@ -102,6 +102,7 @@ fig = px.scatter_geo(df, locations = 'CODE',
                      hover_name='ENTITY',
                      size='PERCENTAGE_WITH_TERTIARY_EDUCATION',
                      projection='orthographic')
+fig.update_layout(width=1500, height=1000)
 
 data_visualization = dbc.Container(
     [
