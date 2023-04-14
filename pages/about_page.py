@@ -83,6 +83,8 @@ query_string = 'SELECT SUM(count) total_tuples FROM' \
                 ' (SELECT COUNT(*) as count FROM AgriculturalIrrigation) UNION ALL' \
                 ' (SELECT COUNT(*) as count FROM PlasticPollution) UNION ALL' \
                 ' (SELECT COUNT(*) as count FROM CarbonFootprint) )'
+
+
 df = functions.query_db(query_string)
 total_num_tuples = df['TOTAL_TUPLES'][0]
 

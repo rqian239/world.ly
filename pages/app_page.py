@@ -17,7 +17,7 @@ nav = navbar()
 ftr = footer()
 
 #query_string = '(SELECT year, life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM ( SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM ( SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC ) ) WHERE YEAR > 1950 AND YEAR < 2020 ) ORDER BY life_expectancy_change_compared_to_last_5_years FETCH FIRST 5 ROWS ONLY) UNION ALL (SELECT year, life_expectancy_change_compared_to_last_5_years FROM (SELECT year, ROUND(life_expectancy - past_5_yrs_avg_life_expectancy,4) life_expectancy_change_compared_to_last_5_years FROM (SELECT year, life_expectancy, AVG(life_expectancy) OVER(ORDER BY year DESC ROWS BETWEEN 1 FOLLOWING AND 5 FOLLOWING) past_5_yrs_avg_life_expectancy FROM (SELECT year, AVG(life_expectancy_at_birth) life_expectancy FROM LifeExpectancy GROUP BY year ORDER BY YEAR DESC)) WHERE YEAR > 1950 AND YEAR < 2020) ORDER BY life_expectancy_change_compared_to_last_5_years DESC FETCH FIRST 5 ROWS ONLY)'
-query_string = '(SELECT education.entity, education.percentage percentage_with_tertiary_education FROM ShareOfThePopulationWithCompletedTertiaryEducation education WHERE education.year = 2010)'
+query_string = '(SELECT education.code, education.entity, education.percentage percentage_with_tertiary_education FROM ShareOfThePopulationWithCompletedTertiaryEducation education WHERE education.year = 2010)'
 df = functions.query_db(query_string)
 
 body = dbc.Container(
@@ -94,7 +94,10 @@ body = dbc.Container(
 
 # fig.update_layout(width=1500, height=1000)
 
-fig = px.scatter_geo(df, locations = 'ENTITY',
+test = px.data.gapminder().query("year==2007")
+print(test.head(10))
+
+fig = px.scatter_geo(df, locations = 'CODE',
                      color='ENTITY',
                      hover_name='ENTITY',
                      size='PERCENTAGE_WITH_TERTIARY_EDUCATION',
