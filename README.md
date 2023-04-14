@@ -38,6 +38,10 @@
 11. Open Visual Studio Installer and click the 'Available' tab
 
 12. Then install 'Visual Studio Community 2022' (latest year available)
+    - When propmpted to install workloads, select 'Desktop development with C++' 
+    - If this is not prompted, finish installing 'Visual Studio Community 2022'
+        - Then go to the 'Installed' tab and select 'Modify' under 'Visual Studio Community 2022'
+        - Select the box labled 'Desktop development with C++' and install
 
 13. After installing open a new Command Prompt
 
@@ -45,7 +49,7 @@
 
 15. Run 
     
-    pip install -r requirements.txt
+    'pip install -r requirements.txt'
     
 16. If prompted to, add any new paths in Enviroment System Variables, then re-run the last step
 
