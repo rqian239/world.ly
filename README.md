@@ -5,26 +5,26 @@
 1. Clone the 'world.ly' repository on your local device
 2. Install the latest version of Python from the Microsoft Store (Version 3.11 latest as of now)
 3. Add Python Installation path to Enviroment System Variables
-    a. Search for 'Edit the system enviroment variables'
-    b. Click 'Enviroment Variables' in the botton right corner
-    c. Then under 'System variables', double-click the 'Path' variable
-    d. Select 'New' in the top right corner
-    e Type the path of the python installation (i.e., C:\Program Files\Python311)
-    f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
-    g. To make sure Python has installed correctly, open a Command Prompt by typing 'Command Prompt' in the search bar
-    h. Then type
+    * a. Search for 'Edit the system enviroment variables'
+    * b. Click 'Enviroment Variables' in the botton right corner
+    * c. Then under 'System variables', double-click the 'Path' variable
+    * d. Select 'New' in the top right corner
+    * e Type the path of the python installation (i.e., C:\Program Files\Python311)
+    * f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
+    * g. To make sure Python has installed correctly, open a Command Prompt by typing 'Command Prompt' in the search bar
+    * h. Then type
         python --version
-    i. If the version shows, Python has been installed correctly
+    * i. If the version shows, Python has been installed correctly
 4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.htmlhttps://www.oracle.com/database/technologies/instant-client/downloads.html)
 5. After downloading the Oracle Instant Client, make a new folder called 'Oracle' in your local drive's 'Program Files' (C:\Program Files\Oracle)
 6. Extract the contents of the Oracle Instant Client in the 'Oracle' folder (So, should have C:\Program Files\Oracle\instantclient_21_9)
 7. Add Oracle Instant Client to Enviroment System Variables
-    a. Search for 'Edit the system enviroment variables'
-    b. Click 'Enviroment Variables' in the botton right corner
-    c. Then under 'System variables', double-click the 'Path' variable
-    d. Select 'New' in the top right corner
-    e Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
-    f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
+    * a. Search for 'Edit the system enviroment variables'
+    * b. Click 'Enviroment Variables' in the botton right corner
+    * c. Then under 'System variables', double-click the 'Path' variable
+    * d. Select 'New' in the top right corner
+    * e Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
+    * f. Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
 10. Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 11. Open Visual Studio Installer and click the 'Available' tab
 12. Then install 'Visual Studio Community 2022' (latest year available)
