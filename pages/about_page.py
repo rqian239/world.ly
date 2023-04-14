@@ -15,7 +15,74 @@ nav = navbar()
 ftr = footer()
 
 # Total tuples query: should output > 250000
-query_string = 'SELECT SUM(count) total_tuples FROM ( (SELECT COUNT(*) as count FROM LifeExpectancy) UNION ALL (SELECT COUNT(*) as count FROM PublicHealthGovExpenditureShareGDP) UNION ALL (SELECT COUNT(*) as count FROM AdultMortality) UNION ALL (SELECT COUNT(*) as count FROM MaternalMortality) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInSoutheastAsianRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInEuropeanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInEasternMediterraneanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInAmericasRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInAfricanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInWesternPacificRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInSoutheastAsianRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInEuropeanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInEasternMediterraneanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInAmericasRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInAfricanRegion) UNION ALL (SELECT COUNT(*) as count FROM ShareOfThePopulationWithCompletedTertiaryEducation) UNION ALL (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInTertiaryEducation) UNION ALL (SELECT COUNT(*) as count FROM PopulationBreakdownByHighestLevelOfEducationAchievedForThoseAged15In) UNION ALL (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInPrimaryEducation) UNION ALL (SELECT COUNT(*) as count FROM PrimaryCompletionRateOfRelevantAgeGroup) UNION ALL (SELECT COUNT(*) as count FROM CompletionRateOfLowerSecondaryEducation) UNION ALL (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInSecondaryEducation) UNION ALL (SELECT COUNT(*) as count FROM EnergyPerPerson) UNION ALL (SELECT COUNT(*) as count FROM ShareOfThePopulationWithAccessToElectricity) UNION ALL (SELECT COUNT(*) as count FROM GasConsumptionByCountry) UNION ALL (SELECT COUNT(*) as count FROM ElectricityProductionBySource) UNION ALL (SELECT COUNT(*) as count FROM FossilFuelPrimaryEnergy) UNION ALL (SELECT COUNT(*) as count FROM AnnualNumberOfDeathsByCause) UNION ALL (SELECT COUNT(*) as count FROM ShareOfDeathsHomicides) UNION ALL (SELECT COUNT(*) as count FROM LandArea) UNION ALL (SELECT COUNT(*) as count FROM ShareOfAdultsWhoAreOverweight) UNION ALL (SELECT COUNT(*) as count FROM CrossCountryLiteracyRates) UNION ALL (SELECT COUNT(*) as count FROM PopulationAndDemography) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInWesternPacificRegion) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInSoutheastAsianRegion) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInEuropeanRegion) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInEasternMediterraneanRegion) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInAmericasRegion) UNION ALL (SELECT COUNT(*) as count FROM InfantMortalityRateInAfricanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInWesternPacificRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEasternAsianRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEuropeanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEasternMediterraneanRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInAmericasRegion) UNION ALL (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInAfricanRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInWesternPacificRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInSoutheastAsianRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInEuropeanRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInEasternMediterraneanRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInAmericasRegion) UNION ALL (SELECT COUNT(*) as count FROM NeonatalMortalityRateInAfricanRegion) UNION ALL (SELECT COUNT(*) as count FROM RealGdpPerCapita) UNION ALL (SELECT COUNT(*) as count FROM GdpPerCapitaGrowth) UNION ALL (SELECT COUNT(*) as count FROM Continents) UNION ALL (SELECT COUNT(*) as count FROM Internet_Users) UNION ALL (SELECT COUNT(*) as count FROM PrimarySchoolsWithInternetAccess) UNION ALL (SELECT COUNT(*) as count FROM FoodAid) UNION ALL (SELECT COUNT(*) as count FROM ForestArea) UNION ALL (SELECT COUNT(*) as count FROM AnnualDeforestation) UNION ALL (SELECT COUNT(*) as count FROM DrinkingWaterServiceCoverage) UNION ALL (SELECT COUNT(*) as count FROM AvgYearlyPrecipitation) UNION ALL (SELECT COUNT(*) as count FROM PopWithAccessToSafeDrinkingWater) UNION ALL (SELECT COUNT(*) as count FROM PopWithoutAccessToSafeDrinkingWater) UNION ALL (SELECT COUNT(*) as count FROM ShareOfSmokers) UNION ALL (SELECT COUNT(*) as count FROM AgriculturalIrrigation) UNION ALL (SELECT COUNT(*) as count FROM PlasticPollution) UNION ALL (SELECT COUNT(*) as count FROM CarbonFootprint) )'
+query_string = 'SELECT SUM(count) total_tuples FROM' \
+                ' ( (SELECT COUNT(*) as count FROM LifeExpectancy) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PublicHealthGovExpenditureShareGDP) UNION ALL'\
+                ' (SELECT COUNT(*) as count FROM AdultMortality) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MaternalMortality) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInSoutheastAsianRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInEuropeanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInEasternMediterraneanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInAmericasRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesFiveToNineInAfricanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInWesternPacificRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInSoutheastAsianRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInEuropeanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInEasternMediterraneanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInAmericasRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateAgesTenToFourteenInAfricanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ShareOfThePopulationWithCompletedTertiaryEducation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInTertiaryEducation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PopulationBreakdownByHighestLevelOfEducationAchievedForThoseAged15In) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInPrimaryEducation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PrimaryCompletionRateOfRelevantAgeGroup) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM CompletionRateOfLowerSecondaryEducation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM GrossEnrollmentRatioInSecondaryEducation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM EnergyPerPerson) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ShareOfThePopulationWithAccessToElectricity) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM GasConsumptionByCountry) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ElectricityProductionBySource) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM FossilFuelPrimaryEnergy) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM AnnualNumberOfDeathsByCause) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ShareOfDeathsHomicides) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM LandArea) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ShareOfAdultsWhoAreOverweight) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM CrossCountryLiteracyRates) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PopulationAndDemography) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInWesternPacificRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInSoutheastAsianRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInEuropeanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInEasternMediterraneanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInAmericasRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM InfantMortalityRateInAfricanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInWesternPacificRegion) UNION ALL'\
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEasternAsianRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEuropeanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInEasternMediterraneanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInAmericasRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM MortalityRateChildrenUnderFiveInAfricanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInWesternPacificRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInSoutheastAsianRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInEuropeanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInEasternMediterraneanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInAmericasRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM NeonatalMortalityRateInAfricanRegion) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM RealGdpPerCapita) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM GdpPerCapitaGrowth) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM Continents) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM Internet_Users) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PrimarySchoolsWithInternetAccess) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM FoodAid) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ForestArea) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM AnnualDeforestation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM DrinkingWaterServiceCoverage) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM AvgYearlyPrecipitation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PopWithAccessToSafeDrinkingWater) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PopWithoutAccessToSafeDrinkingWater) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM ShareOfSmokers) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM AgriculturalIrrigation) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM PlasticPollution) UNION ALL' \
+                ' (SELECT COUNT(*) as count FROM CarbonFootprint) )'
 df = functions.query_db(query_string)
 total_num_tuples = df['TOTAL_TUPLES'][0]
 
