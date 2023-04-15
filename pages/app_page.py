@@ -11,7 +11,7 @@ from components.navbar import navbar
 from components.footer import footer
 
 import components.metric_dropdown as dropdown
-
+import ids
 import functions
 
 
@@ -66,16 +66,39 @@ def app_page(app: dash.Dash):
     scatter_fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
     scatter_fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
     scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
-    scatter_fig.update_layout(width=1500, height=1000)
+    scatter_fig.update_layout(width=1200, height=1000)
+
+    scatter_plot_dropdown_1 = dropdown.render_scatter_plot_dropdown(app, ids.SCATTER_PLOT_DROPDOWN_1)
+    scatter_plot_dropdown_2 = dropdown.render_scatter_plot_dropdown(app, ids.SCATTER_PLOT_DROPDOWN_2)
 
     scatter_plot_section = dbc.Container(
         [
         # Add dropdown and buttons here
             dbc.Row(
+                dbc.Col(
                 [
-                    dropdown.render_scatter_plot_dropdown(app)
+                    html.Div(
+                        [
+                            html.H4("Choose one demographic metric"),
+                            scatter_plot_dropdown_1
+                        ]
+                    ),
                 ],
-                style={'margin-top': '100px'}
+                style={'margin-top': '100px', 'width': '75%'}
+                )
+            ),
+            dbc.Row(
+                dbc.Col(
+                [
+                    html.Div(
+                        [
+                            html.H4("Choose another demographic metric"),
+                            scatter_plot_dropdown_2
+                        ]
+                    ),
+                ],
+                style={'margin-top': '30px', 'width': '75%'}
+                )
             ),
             dbc.Row(
                 [

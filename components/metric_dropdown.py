@@ -100,12 +100,12 @@ def render(app: dash.Dash) -> html.Div:
             )
         ])
 
-def render_scatter_plot_dropdown(app: dash.Dash) -> html.Div:
+def render_scatter_plot_dropdown(app: dash.Dash, input_id) -> html.Div:
     all_attributes = attribute_table_dict.keys()
     return html.Div(
         children=[
             dcc.Dropdown(
-                id=ids.SCATTER_PLOT_DROPDOWN_1,
+                id=input_id,
                 options=[{"label": attribute, "value": attribute} for attribute in all_attributes],
                 value=None,
             )
