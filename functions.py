@@ -27,3 +27,6 @@ def reformat_data_label(label):
     words = label.split('_')
     formatted_words = [word.lower().capitalize() for word in words]
     return ' '.join(formatted_words)
+
+def format_attribute_name_for_sql(attribute_name):
+    return attribute_name.replace(' ', '_').upper()
