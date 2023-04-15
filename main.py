@@ -14,6 +14,8 @@ from pages.about_page import about_page
 from pages.how_to_page import how_to_page
 from pages.app_page import app_page
 
+import plotly.graph_objs as go
+
 import ids
 import graphs.scatter_plot as scatter_plot
 import functions
@@ -66,11 +68,80 @@ def update_scatter_plot(metric_1, metric_2):
         df['PARAMETER2'].replace(np.nan, None, inplace=True)
 
         print(df.head())
-        fig = px.scatter(df, x='PARAMETER1', y='PARAMETER2', hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
-            # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
-    #                             animation_frame='YEAR',
-    #                             animation_group='ENTITY',
-    #                             hover_name='ENTITY', color='ENTITY')
+    #     fig = px.scatter(df, x='PARAMETER1', y='PARAMETER2', hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
+    #         # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
+    # #                             animation_frame='YEAR',
+    # #                             animation_group='ENTITY',
+    # #                             hover_name='ENTITY', color='ENTITY')
+
+        # Create a color scale for the countries
+        country_color_scale = px.colors.qualitative.Plotly
+
+        # Create scatter traces for each country
+        scatter_traces = [
+            go.Scatter(
+                x=df.loc[(df['ENTITY'] == country) & (df['YEAR'] == df['YEAR'].min()), 'PARAMETER1'],
+                y=df.loc[(df['ENTITY'] == country) & (df['YEAR'] == df['YEAR'].min()), 'PARAMETER2'],
+                mode='markers',
+                marker=dict(
+                    size=6,
+                    color=country_color_scale[all_countries.index(country) % len(country_color_scale)],
+                ),
+                name=country,
+                legendgroup=country,
+                showlegend=True if df['YEAR'].min() in df.loc[df['ENTITY'] == country, 'YEAR'].values else False
+            )
+            for country in all_countries
+        ]
+
+        # Create the base figure with the scatter traces
+        fig = go.Figure(data=scatter_traces)
+
+        # Define the animation frames
+        frames = [go.Frame(data=[
+            go.Scatter(
+                x=df.loc[(df['ENTITY'] == country) & (df['YEAR'] == year), 'PARAMETER1'],
+                y=df.loc[(df['ENTITY'] == country) & (df['YEAR'] == year), 'PARAMETER2'],
+                mode='markers',
+                marker=dict(
+                    size=6,
+                    color=country_color_scale[all_countries.index(country) % len(country_color_scale)],
+                ),
+                name=country,
+                legendgroup=country,
+            )
+            for country in all_countries
+        ],
+        layout=go.Layout(
+            annotations=[
+                dict(xref='paper', yref='paper', x=0.95, y=0.95, text=str(year), showarrow=False, font=dict(size=20), name='year_text')
+            ]
+        ),
+        name=str(year)) for year in df['YEAR'].unique()]
+
+        # Add the frames to the figure
+        fig.frames = frames
+
+        # Define animation settings
+        animation_settings = dict(frame=dict(duration=500, redraw=True), fromcurrent=True)
+
+        # Update layout to include the animation settings, set the initial frame
+        fig.update_layout(
+            updatemenus=[dict(type='buttons', showactive=False, buttons=[
+                dict(label='Play', method='animate', args=[None, animation_settings]),
+                dict(label='Pause', method='animate', args=[[None], dict(frame=dict(duration=0, redraw=True), fromcurrent=True, mode='immediate')])
+            ])],
+            title='Animated Scatter Plot',
+            xaxis=dict(title='PARAMETER1', autorange=True),
+            yaxis=dict(title='PARAMETER2', autorange=True),
+        )
+
+        # Set axis autorange to update with animation
+        fig.update_xaxes(autorange=True)
+        fig.update_yaxes(autorange=True)
+
+
+
         fig.update_xaxes(title_text=metric_1)
         fig.update_yaxes(title_text=metric_2)
         fig.update_layout(width=1300, height=1000)
