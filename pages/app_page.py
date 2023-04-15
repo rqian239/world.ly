@@ -32,34 +32,34 @@ df_map = functions.query_db(query_string_for_map_2_metrics)
 
 def app_page(app: dash.Dash):
 
-    body = dbc.Container(
-        [
-            dbc.Row(
-                [
-                    dbc.Col(
-                        [
-                            html.H1("Main Application"),
-                            html.P(
-                                """\
-                                This is where we put the data visualizations."""
-                            ),
-                            html.Div([
-                                dash_table.DataTable(
-                                    id='table',
-                                    columns=[{"name": i, "id": i} for i in df.columns],
-                                    data=df.to_dict('records'),
-                                    style_table={'width': '50%'},
-                                    style_cell={'textAlign': 'left', 'fontSize': 14}
-                                )
-                            ]),
-                        ],
-                        md=4,
-                    )
-                ]
-            )
-        ],
-        className="mt-4 body-flex-wrapper",
-    )
+    # body = dbc.Container(
+    #     [
+    #         dbc.Row(
+    #             [
+    #                 dbc.Col(
+    #                     [
+    #                         html.H1("Main Application"),
+    #                         html.P(
+    #                             """\
+    #                             This is where we put the data visualizations."""
+    #                         ),
+    #                         html.Div([
+    #                             dash_table.DataTable(
+    #                                 id='table',
+    #                                 columns=[{"name": i, "id": i} for i in df.columns],
+    #                                 data=df.to_dict('records'),
+    #                                 style_table={'width': '50%'},
+    #                                 style_cell={'textAlign': 'left', 'fontSize': 14}
+    #                             )
+    #                         ]),
+    #                     ],
+    #                     md=4,
+    #                 )
+    #             ]
+    #         )
+    #     ],
+    #     className="mt-4 body-flex-wrapper",
+    # )
 
     # fig = px.line(df, x="YEAR", y="BOTH_SEXES_MORTALITY_RATE", title='Adult Mortality Rate', color = 'COUNTRY')
     # fig.update_xaxes(title_text=(reformat_data_label("YEAR")))
@@ -191,5 +191,5 @@ def app_page(app: dash.Dash):
             ),
         ]
     )
-    layout = html.Div([nav, drpdwn, body, scatter_plot_section, world_map_section, animated_plot_section, world_map_2_metrics_section, ftr], className="make-footer-stick")
+    layout = html.Div([nav, drpdwn, scatter_plot_section, world_map_section, world_map_2_metrics_section, ftr], className="make-footer-stick")
     return layout

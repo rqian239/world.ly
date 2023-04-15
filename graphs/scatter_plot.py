@@ -97,9 +97,9 @@ def query_for_static_scatter_plot(parameter1, parameter2):
     print(table1)
     print(table2)
 
-    query_string = f'SELECT continents.entity, table1.{parameter1} parameter1, table2.{parameter2} parameter2 ' \
+    query_string = f'SELECT continents.entity, table1.{parameter1} parameter1, table2.{parameter2} parameter2, table1.year ' \
     f'FROM {table1} table1, {table2} table2, (SELECT entity, code, continent FROM Continents) continents ' \
-    f'WHERE table1.code = table2.code AND table1.year = table2.year AND table1.year = \'2010\' AND continents.code = table1.code AND table1.code NOT LIKE \'%OWID%\' AND table1.{parameter1} IS NOT NULL AND table2.{parameter2} IS NOT NULL'
+    f'WHERE table1.code = table2.code AND table1.year = table2.year AND continents.code = table1.code AND table1.code NOT LIKE \'%OWID%\' AND table1.{parameter1} IS NOT NULL AND table2.{parameter2} IS NOT NULL'
 
     print(query_string)
 
