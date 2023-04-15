@@ -164,7 +164,13 @@ def app_page(app: dash.Dash):
                                     dcc.Graph(
                                         id='data-visualization',
                                         figure=world_map_fig_2_metrics
+
                                     ),
+                                    html.Br(),
+                                    html.Br(),
+                                    html.Br(),
+                                    html.Br(),
+                                    html.Br(),
                                 ],
                                 # className="center-content"
                             )
