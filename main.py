@@ -58,7 +58,11 @@ def update_scatter_plot(metric_1, metric_2):
     else:
         df = scatter_plot.query_for_static_scatter_plot(metric_1, metric_2)
         print(df.head())
-        fig = px.scatter(df, x=df['PARAMETER1'], y=df['PARAMETER2'], hover_name='ENTITY', color='ENTITY')
+        fig = px.scatter(df, x=df['PARAMETER1'], y=df['PARAMETER2'], hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
+            # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
+    #                             animation_frame='YEAR',
+    #                             animation_group='ENTITY',
+    #                             hover_name='ENTITY', color='ENTITY')
         fig.update_xaxes(title_text=metric_1)
         fig.update_yaxes(title_text=metric_2)
         fig.update_layout(width=1300, height=1000)
