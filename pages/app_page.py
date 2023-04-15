@@ -101,42 +101,42 @@ def app_page(app: dash.Dash):
         ]
     )
 
-    #possibly add log_x=True, size_max=55,range_x=[100, 100000], range_y=[25, 90] to end of px.scatter
-    # ^^^for resizing graph and limit the bounds on x and y axis
-    animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
-                                animation_frame='YEAR',
-                                animation_group='ENTITY',
-                                hover_name='ENTITY', color='ENTITY')
-    animated_plot.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
-    animated_plot.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
-    animated_plot.update_layout(width=1500, height=1000)
-    animated_plot_section = dbc.Container(
-        [
-        # Add dropdown and buttons here
-            dbc.Row(
-                [
+    # #possibly add log_x=True, size_max=55,range_x=[100, 100000], range_y=[25, 90] to end of px.scatter
+    # # ^^^for resizing graph and limit the bounds on x and y axis
+    # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
+    #                             animation_frame='YEAR',
+    #                             animation_group='ENTITY',
+    #                             hover_name='ENTITY', color='ENTITY')
+    # animated_plot.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
+    # animated_plot.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
+    # animated_plot.update_layout(width=1500, height=1000)
+    # animated_plot_section = dbc.Container(
+    #     [
+    #     # Add dropdown and buttons here
+    #         dbc.Row(
+    #             [
                 
-                ]
-            ),
-            dbc.Row(
-                [
-                    dbc.Col(
-                        [
-                            html.Div(
-                                [
-                                    dcc.Graph(
-                                        id='data-visualization',
-                                        figure=animated_plot
-                                    ),
-                                ],
-                                # className="center-content"
-                            )
-                        ]
-                    )
-                ]
-            ),
-        ]
-    )
+    #             ]
+    #         ),
+    #         dbc.Row(
+    #             [
+    #                 dbc.Col(
+    #                     [
+    #                         html.Div(
+    #                             [
+    #                                 dcc.Graph(
+    #                                     id='data-visualization',
+    #                                     figure=animated_plot
+    #                                 ),
+    #                             ],
+    #                             # className="center-content"
+    #                         )
+    #                     ]
+    #                 )
+    #             ]
+    #         ),
+    #     ]
+    # )
 
     world_map_fig_2_metrics = px.scatter_geo(df_map, locations = 'CODE',
                         animation_frame='YEAR',
