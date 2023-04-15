@@ -93,7 +93,7 @@ def update_scatter_plot(metric_1, metric_2):
         # Create the base figure with the initial trace
         fig = go.Figure(data=[scatter])
 
-        # Define the animation frames
+        # Define the animation frames with added annotations
         frames = [go.Frame(data=[go.Scatter(
             x=df.loc[df['YEAR'] == year, 'PARAMETER1'],
             y=df.loc[df['YEAR'] == year, 'PARAMETER2'],
@@ -104,7 +104,21 @@ def update_scatter_plot(metric_1, metric_2):
                     for country in df.loc[df['YEAR'] == year, 'ENTITY']],
             ),
             text=df.loc[df['YEAR'] == year, 'ENTITY']
-        )]) for year in df['YEAR'].unique()]
+        )],
+            layout=dict(
+                annotations=[
+                    dict(
+                        x=1,
+                        y=1.1,
+                        xref="paper",
+                        yref="paper",
+                        text=f"Year: {year}",
+                        showarrow=False,
+                        font=dict(size=16),
+                    )
+                ]
+            )
+        ) for year in df['YEAR'].unique()]
 
         # Add the frames to the figure
         fig.frames = frames
@@ -120,7 +134,18 @@ def update_scatter_plot(metric_1, metric_2):
             ])],
             title='Animated Scatter Plot',
             xaxis=dict(title='PARAMETER1', autorange=True),
-            yaxis=dict(title='PARAMETER2', autorange=True)
+            yaxis=dict(title='PARAMETER2', autorange=True),
+            annotations=[
+                dict(
+                    x=1,
+                    y=1.1,
+                    xref="paper",
+                    yref="paper",
+                    text=f"Year: {df['YEAR'].min()}",
+                    showarrow=False,
+                    font=dict(size=16),
+                )
+            ],
         )
 
         # Set axis autorange to update with animation
