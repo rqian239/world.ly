@@ -14,6 +14,7 @@ from pages.how_to_page import how_to_page
 from pages.app_page import app_page
 
 import ids
+import graphs.scatter_plot as scatter_plot
 
 # Themes? Try FLATLY, LUX, QUARTZ
 # https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
@@ -51,8 +52,9 @@ def display_page(pathname):
         Input(ids.SCATTER_PLOT_DROPDOWN_2, 'value')])
 def update_scatter_plot(metric_1, metric_2):
     if metric_1 is None or metric_2 is None:
-        return html.Div([html.H3('Please select two metrics to create a scatter plot'), html.Hr()], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
+        return html.Div([html.H3('Please select two metrics to create a scatter plot. Use the dropdowns above.')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
 
+    df = scatter_plot.query_for_static_scatter_plot(metric_1, metric_2)
 
 if __name__ == '__main__':
     app.run()

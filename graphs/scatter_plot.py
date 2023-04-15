@@ -29,20 +29,26 @@ scatter_plot_section = dbc.Container(
         dbc.Row(
             dbc.Col(
                 [
-                html.H6('Choose a metric'),
+                html.H4('Choose two metrics.'),
                 dcc.Dropdown(
                     id=ids.SCATTER_PLOT_DROPDOWN_1,
                     options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
                     value=None,
-                    multi=False
+                    multi=False,
+                    className = 'dropdown-style',
                 ),
+                html.Br(),
+                html.Br(),
                 dcc.Dropdown(
                     id=ids.SCATTER_PLOT_DROPDOWN_2,
                     options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
                     value=None,
-                    multi=False
+                    multi=False,
+                    className = 'dropdown-style',
                 ),
-                ]
+                ],
+                style={'margin-top': '50px', 'margin-bottom': '50px'},
+                className='centered'
             )
         ),
         dbc.Row(
@@ -67,3 +73,18 @@ scatter_plot_section = dbc.Container(
 
 def render():
     return scatter_plot_section
+
+
+def query_for_static_scatter_plot(parameter1, parameter2):
+
+    table1 = data.attribute_table_dict[parameter1]
+    table2 = data.attribute_table_dict[parameter2]
+
+    query_string = f'SELECT continents.entity, table1.{parameter1} parameter1, table2.{parameter2} parameter2' \
+    f'FROM {table1} table1, {table2} table2, (SELECT entity, code, continent FROM Continents) continents' \
+    f'WHERE table1.code = table2.code AND table1.year = table2.year AND table1.year = \'2010\' AND continents.code = table1.code AND table1.code NOT LIKE \'%OWID%\' AND table1.{parameter1} IS NOT NULL AND table2.{parameter2} IS NOT NULL'
+
+    df = functions.query_db(query_string)
+
+    return df
+

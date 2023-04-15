@@ -69,7 +69,13 @@
     min-height: 100vh;
 }
 
-
+.dropdown-style
+{
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 p
 {
