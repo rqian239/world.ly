@@ -77,7 +77,8 @@ scatter_plot_section = dbc.Container(
                 )
             ]
         ),
-    ]
+    ],
+    className = 'scatter-plot-container'
 )
 
 def render():
