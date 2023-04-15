@@ -24,7 +24,8 @@ body = dbc.Container(
                         html.P(
                             """\
                             Learn more about using the world.ly application and its many features.\n
-                            Explore the different sections of the application and make your own complex queries!"""
+                            """
+                            #Explore the different sections of the application and make your own complex queries!
                         ),
                         html.Br(),
                         html.Div(

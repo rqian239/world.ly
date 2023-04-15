@@ -139,6 +139,16 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [   
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
                         html.Img(
                         src="assets\images\elements-silhouette-pixel-world-map-pixelated-vector.jpg",
                         width="100%",
@@ -148,6 +158,7 @@ body = dbc.Container(
                     ],
                     className="centered",
                 ),
+                
                 dbc.Col(
                     [
                         html.H3("Metrics Used"),
@@ -172,13 +183,13 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 3 (Society/Population): Metrics in Sector 3 include life expectancy, literacy rate, aid, internet users, etc.
+                            ◉   Sector 3 (Society): Metrics in Sector 3 include life expectancy, literacy rate, aid, internet users, etc.
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 4 (Energy/Pollution): Metrics in Sector 4 include access to energy sources, use of sources, average emissions, pollution, etc.
+                            ◉   Sector 4 (Energy): Metrics in Sector 4 include access to energy sources, use of sources, average emissions, pollution, etc.
                             """,
                         ),
                         html.Br(),
@@ -261,7 +272,7 @@ body = dbc.Container(
                         ),
                         
                         DashIconify(
-                            icon="material-symbols:table-chart-outline",
+                            icon="mdi:chart-scatter-plot",
                             width=100,
                             height=100,
                         ),
