@@ -123,7 +123,7 @@ def update_scatter_plot(metric_1, metric_2):
         fig.frames = frames
 
         # Define animation settings
-        animation_settings = dict(frame=dict(duration=500, redraw=True), fromcurrent=True)
+        animation_settings = dict(frame=dict(duration=1000, redraw=True), fromcurrent=True)
 
         # Update layout to include the animation settings, set the initial frame
         fig.update_layout(
