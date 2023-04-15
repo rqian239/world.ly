@@ -23,8 +23,8 @@ body = dbc.Container(
                         # home page blurb
                         html.P(
                             """\
-                            Learn about using the world.ly application and its many features.
-                            """
+                            Learn more about using the world.ly application and its many features.\n
+                            Explore the different sections of the application and make your own complex queries!"""
                         ),
                         html.Br(),
                         html.Div(
@@ -59,7 +59,31 @@ body = dbc.Container(
                         html.Hr(),
                         html.P(
                             """\
-                            Description here.
+                            Visualize the trend of the metrics by creating your own complex query!
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Select two metrics you want to compare
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   After selecing the metrics, a scatter plot will appear with each dot representing a country
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Use the play/pause buttons to see the trend of the metrics over the years
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Hovering over each dot will display each country and its specifc data relating to the metrics
                             """,
                         ),
                     ]
@@ -111,7 +135,43 @@ body = dbc.Container(
                         html.Hr(),
                         html.P(
                             """\
-                            Description here.
+                            Use our built-in globe to visualize the queries!
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Select one of our specific complex queries
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Click and hold the globe to navigate around 
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Hover over each dot to see the country and its specific metrics
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Each dot's size will vary based on the size of the metric tracked
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Use the timeline below the globe to see the data by year
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Select the play/pause button (represented by symbols) to see the trend change over time
                             """,
                         ),
                     ]

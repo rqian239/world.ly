@@ -154,25 +154,43 @@ body = dbc.Container(
                         html.Hr(),
                         html.P(
                             """\
-                            Description of sectors chosen and corresponding metrics. Explain the relevance of metrics.
+                            We have chosen specific metrics that each country has data on. With world.ly you will be able to create complex queries by selecting specific metrics. 
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 1 (Economy): Metrics in Sector 1 (GDP, average income, inflation, etc.)
+                            ◉   Sector 1 (Economy): Metrics in Sector 1 include GDP per capita, GNI per captia, growth, etc.
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 2 (Health):  Metrics in Sector 2
+                            ◉   Sector 2 (Health):  Metrics in Sector 2 include public health, diseases, overweight, deaths by, etc.
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 3 (Population): Metrics in Sector 3
+                            ◉   Sector 3 (Society/Population): Metrics in Sector 3 include life expectancy, literacy rate, aid, internet users, etc.
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Sector 4 (Energy/Pollution): Metrics in Sector 4 include access to energy sources, use of sources, average emissions, pollution, etc.
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Sector 5 (Education): Metrics in Sector 5 include gross enrollment per education level, number of completions per level, completions by gender per level, etc.
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   Sector 6 (Enviroment): Metrics in Sector 6 include forest area, deforestation, land area, precipitation, etc.
                             """,
                         ),
                     ],
@@ -192,7 +210,7 @@ body = dbc.Container(
                         html.Hr(),
                         html.P(
                             """\
-                            Visualize trends with world.ly. Generate graphs, charts, and maps of your selected data. Description of the visualization tools here. Describe the kinds of charts and graphs.
+                            Visualize trends with world.ly. Generate graphs and maps of your selected data.
                             """,
                         ),
                         html.Br(), 
@@ -204,7 +222,7 @@ body = dbc.Container(
                         html.Br(), 
                         html.P(
                             """\
-                            ◉   Tables
+                            ◉   Scatter Plots
                             """,
                         ),
                         html.Br(), 
