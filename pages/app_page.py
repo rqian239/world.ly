@@ -159,6 +159,16 @@ def app_page(app: dash.Dash):
                 [
                     dbc.Col(
                         [
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
                             html.Div(
                                 [
                                     dcc.Graph(
@@ -174,7 +184,8 @@ def app_page(app: dash.Dash):
                                 ],
                                 # className="center-content"
                             )
-                        ]
+                        ],
+                        className="centered"
                     )
                 ]
             ),
