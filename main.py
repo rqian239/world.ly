@@ -132,7 +132,7 @@ def update_scatter_plot(metric_1, metric_2):
                 dict(label='Play', method='animate', args=[None, animation_settings]),
                 dict(label='Pause', method='animate', args=[[None], dict(frame=dict(duration=0, redraw=True), fromcurrent=True, mode='immediate')])
             ])],
-            title='Animated Scatter Plot',
+            title=f'Analysis of \'{metric_1}\' VS \'{metric_2}\'',
             xaxis=dict(title='PARAMETER1', autorange=True),
             yaxis=dict(title='PARAMETER2', autorange=True),
             annotations=[
@@ -156,7 +156,7 @@ def update_scatter_plot(metric_1, metric_2):
 
         fig.update_xaxes(title_text=metric_1)
         fig.update_yaxes(title_text=metric_2)
-        fig.update_layout(width=1300, height=1000)
+        fig.update_layout(width=1200, height=800)
         return dcc.Graph(id=ids.STATIC_SCATTER_PLOT, figure=fig)
 
 
