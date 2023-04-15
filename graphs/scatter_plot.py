@@ -50,13 +50,13 @@ scatter_plot_section = dbc.Container(
                 dbc.Col(
                     [
                         html.Div(
-                            [
+                            children=[
                                 dcc.Graph(
-                                    id='data-visualization',
+                                    id=ids.STATIC_SCATTER_PLOT,
                                     figure=scatter_fig
                                 ),
                             ],
-                            # className="center-content"
+                            id=ids.STATIC_SCATTER_PLOT_CONTAINER,
                         )
                     ]
                 )

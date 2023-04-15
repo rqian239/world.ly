@@ -45,6 +45,14 @@ def display_page(pathname):
 
 
 # UPDATE SCATTER PLOT BASED ON DROPDOWN SELECTION
+@app.callback(
+    Output(ids.STATIC_SCATTER_PLOT_CONTAINER, 'children'),
+    [Input(ids.SCATTER_PLOT_DROPDOWN_1, 'value'),
+        Input(ids.SCATTER_PLOT_DROPDOWN_2, 'value')])
+def update_scatter_plot(metric_1, metric_2):
+    if metric_1 is None or metric_2 is None:
+        return html.Div([html.H3('Please select two metrics to create a scatter plot'), html.Hr()], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
+
 
 if __name__ == '__main__':
     app.run()
