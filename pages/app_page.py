@@ -14,6 +14,7 @@ import components.dropdown as dropdown
 import ids
 import functions
 import data
+import graphs.scatter_plot as scatter_plot
 
 nav = navbar()
 ftr = footer()
@@ -63,52 +64,7 @@ def app_page(app: dash.Dash):
     # fig.update_xaxes(title_text=(reformat_data_label("YEAR")))
     # fig.update_yaxes(title_text=(reformat_data_label("BOTH_SEXES_MORTALITY_RATE")))
 
-    scatter_fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
-    scatter_fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
-    scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
-    scatter_fig.update_layout(width=1200, height=1000)
-
-    scatter_plot_section = dbc.Container(
-        [
-        # Add dropdown and buttons here
-            dbc.Row(
-                dbc.Col(
-                    [
-                    html.H6('Choose a metric'),
-                    dcc.Dropdown(
-                        id=ids.SCATTER_PLOT_DROPDOWN_1,
-                        options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
-                        value=None,
-                        multi=False
-                    ),
-                    dcc.Dropdown(
-                        id=ids.SCATTER_PLOT_DROPDOWN_2,
-                        options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
-                        value=None,
-                        multi=False
-                    ),
-                    ]
-                )
-            ),
-            dbc.Row(
-                [
-                    dbc.Col(
-                        [
-                            html.Div(
-                                [
-                                    dcc.Graph(
-                                        id='data-visualization',
-                                        figure=scatter_fig
-                                    ),
-                                ],
-                                # className="center-content"
-                            )
-                        ]
-                    )
-                ]
-            ),
-        ]
-    )
+    scatter_plot_section = scatter_plot.render()
 
     world_map_fig = px.scatter_geo(df, locations = 'CODE',
                         color='ENTITY',
