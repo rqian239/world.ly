@@ -156,7 +156,7 @@ def update_scatter_plot(metric_1, metric_2):
 
         fig.update_xaxes(title_text=metric_1)
         fig.update_yaxes(title_text=metric_2)
-        fig.update_layout(width=1200, height=800)
+        fig.update_layout(width=1400, height=800)
         return dcc.Graph(id=ids.STATIC_SCATTER_PLOT, figure=fig)
 
 
