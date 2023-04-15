@@ -17,6 +17,7 @@ from pages.app_page import app_page
 import ids
 import graphs.scatter_plot as scatter_plot
 import functions
+import numpy as np
 
 # Themes? Try FLATLY, LUX, QUARTZ
 # https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
@@ -57,8 +58,15 @@ def update_scatter_plot(metric_1, metric_2):
         return html.Div([html.H3('Please select two metrics to create a scatter plot. Use the dropdowns above.')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
         df = scatter_plot.query_for_static_scatter_plot(metric_1, metric_2)
+        all_countries = df['ENTITY'].unique().tolist()
+        all_years = df['YEAR'].unique().tolist()
+        complete_data = pd.DataFrame([(country, year) for country in all_countries for year in all_years], columns=['ENTITY', 'YEAR'])
+        df = pd.merge(complete_data, df, on=['ENTITY', 'YEAR'], how='left')
+        df['PARAMETER1'].replace(np.nan, None, inplace=True)
+        df['PARAMETER2'].replace(np.nan, None, inplace=True)
+
         print(df.head())
-        fig = px.scatter(df, x=df['PARAMETER1'], y=df['PARAMETER2'], hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
+        fig = px.scatter(df, x='PARAMETER1', y='PARAMETER2', hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
             # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
     #                             animation_frame='YEAR',
     #                             animation_group='ENTITY',
