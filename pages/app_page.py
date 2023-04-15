@@ -167,7 +167,7 @@ world_map_fig_2_metrics = px.scatter_geo(df_map, locations = 'CODE',
                      hover_name='COUNTRY',
                      size='CO2_EMISSIONS_METRIC_TONS',
                      projection='orthographic',
-                     hover_data={'COUNTRY': True, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH': True, 'CO2_EMISSIONS_METRIC_TONS': True, 'CODE': False})
+                     hover_data={'COUNTRY': True, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH': True, 'CO2_EMISSIONS_METRIC_TONS': True, 'CODE': False, 'PRIMARY_ELECTRICITY_SOURCE': True})
 world_map_fig_2_metrics.update_layout(width=1500, height=1000)
 
 world_map_2_metrics_section = dbc.Container(
