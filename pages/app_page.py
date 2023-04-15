@@ -10,10 +10,10 @@ from dash import dash_table
 from components.navbar import navbar
 from components.footer import footer
 
-import components.metric_dropdown as dropdown
+import components.dropdown as dropdown
 import ids
 import functions
-
+import data
 
 nav = navbar()
 ftr = footer()
@@ -68,36 +68,26 @@ def app_page(app: dash.Dash):
     scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
     scatter_fig.update_layout(width=1200, height=1000)
 
-    scatter_plot_dropdown_1 = dropdown.render_scatter_plot_dropdown(app, ids.SCATTER_PLOT_DROPDOWN_1)
-    scatter_plot_dropdown_2 = dropdown.render_scatter_plot_dropdown(app, ids.SCATTER_PLOT_DROPDOWN_2)
-
     scatter_plot_section = dbc.Container(
         [
         # Add dropdown and buttons here
             dbc.Row(
                 dbc.Col(
-                [
-                    html.Div(
-                        [
-                            html.H4("Choose one demographic metric"),
-                            scatter_plot_dropdown_1
-                        ]
+                    [
+                    html.H6('Choose a metric'),
+                    dcc.Dropdown(
+                        id=ids.SCATTER_PLOT_DROPDOWN_1,
+                        options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
+                        value=None,
+                        multi=False
                     ),
-                ],
-                style={'margin-top': '100px', 'width': '75%'}
-                )
-            ),
-            dbc.Row(
-                dbc.Col(
-                [
-                    html.Div(
-                        [
-                            html.H4("Choose another demographic metric"),
-                            scatter_plot_dropdown_2
-                        ]
+                    dcc.Dropdown(
+                        id=ids.SCATTER_PLOT_DROPDOWN_2,
+                        options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
+                        value=None,
+                        multi=False
                     ),
-                ],
-                style={'margin-top': '30px', 'width': '75%'}
+                    ]
                 )
             ),
             dbc.Row(

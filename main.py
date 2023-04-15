@@ -27,6 +27,7 @@ app.layout = html.Div([
     html.Div(id=ids.CURRENT_PAGE_CONTENT)
 ])
 
+# FUNCTION TO ROUTE TO DIFFERENT PAGES
 @app.callback(
     Output(ids.CURRENT_PAGE_CONTENT, 'children'),
     [Input(ids.CURRENT_URL, 'pathname')])
@@ -41,6 +42,9 @@ def display_page(pathname):
         return app_page(app)
     else:
         return home_page(app)
+
+
+# UPDATE SCATTER PLOT BASED ON DROPDOWN SELECTION
 
 if __name__ == '__main__':
     app.run()
