@@ -27,11 +27,13 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.config.suppress_callback_exceptions = True
 app.title = 'world.ly'
 
-
+# Main layout
 app.layout = html.Div([
     dcc.Location(id=ids.CURRENT_URL, refresh=False),
     html.Div(id=ids.CURRENT_PAGE_CONTENT)
 ])
+
+# -------------------------------------------------- CALLBACKS -------------------------------------------------- #
 
 # FUNCTION TO ROUTE TO DIFFERENT PAGES
 @app.callback(
@@ -68,11 +70,14 @@ def update_scatter_plot(metric_1, metric_2):
         df['PARAMETER2'].replace(np.nan, None, inplace=True)
 
         print(df.head())
+
+    # ------------------------------------- OLD SCATTER PLOT ------------------------------------- #
     #     fig = px.scatter(df, x='PARAMETER1', y='PARAMETER2', hover_name='ENTITY', color='ENTITY', animation_frame='YEAR', animation_group='ENTITY')
     #         # animated_plot = px.scatter(df_animation, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME',
     # #                             animation_frame='YEAR',
     # #                             animation_group='ENTITY',
     # #                             hover_name='ENTITY', color='ENTITY')
+    # ------------------------------------- OLD SCATTER PLOT ------------------------------------- #
 
         # Create a color scale for the countries
         country_color_scale = px.colors.qualitative.Plotly
@@ -153,10 +158,12 @@ def update_scatter_plot(metric_1, metric_2):
         fig.update_yaxes(autorange=True)
 
 
-
+        # Update the axis titles and figure size
         fig.update_xaxes(title_text=metric_1)
         fig.update_yaxes(title_text=metric_2)
-        fig.update_layout(width=1400, height=800)
+        fig.update_layout(width=1250, height=800)
+
+        # Return the figure
         return dcc.Graph(id=ids.STATIC_SCATTER_PLOT, figure=fig)
 
 
