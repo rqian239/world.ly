@@ -4,6 +4,7 @@ attribute_table_dict = {
     'Public Health Expenditure Percentage of GDP' : 'PublicHealthGovExpenditureShareGDP',
     # 'Male Mortality Rate' : 'AdultMortality',
     # 'Female Mortality Rate' : 'AdultMortality',
+    'Total Population Size' : 'TotalPopulationSize',
     'GDP per Capita' : 'RealGdpPerCapita',
     'GDP per Capita Percent Growth' : 'GdpPerCapitaGrowth',
     'Gross National Income Per Capita' : 'GrossNationalIncomePerCapita',
@@ -82,3 +83,13 @@ attribute_table_dict = {
     'Number of deaths due to Fire' : 'AnnualNumberOfDeathsByCause',
     'Number of deaths due to Acute hepatitis' : 'AnnualNumberOfDeathsByCause'
 }
+
+complex_queries = [
+
+    "Major Greenhouse Emitters with their Electricity Generation and Source",
+    "Highest Life Expectancies & Difference in Public Health Expenditure",
+    "Country with Highest GDP and Associated Parameters Per Continent",
+    "Human Development Index",
+
+
+]
