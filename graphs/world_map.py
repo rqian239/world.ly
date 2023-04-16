@@ -40,7 +40,7 @@ df_complex_2.fillna(0, inplace=True)
 # df_complex_2 = df_complex_2.sort_values(by='YEAR')
 # print(df_complex_2.head(50))
 
-world_map_fig_2_metrics = px.scatter_geo(df_complex_1, locations = 'CODE',
+world_map_for_complex_1 = px.scatter_geo(df_complex_1, locations = 'CODE',
                     animation_frame='YEAR',
                     animation_group='COUNTRY',
                     color='COUNTRY',
@@ -48,9 +48,9 @@ world_map_fig_2_metrics = px.scatter_geo(df_complex_1, locations = 'CODE',
                     size='CO2_EMISSIONS_METRIC_TONS',
                     projection='orthographic',
                     hover_data={'COUNTRY': True, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH': True, 'CO2_EMISSIONS_METRIC_TONS': True, 'CODE': False, 'PRIMARY_ELECTRICITY_SOURCE': True})
-world_map_fig_2_metrics.update_layout(width=1500, height=1000)
+world_map_for_complex_1.update_layout(width=1500, height=1000)
 
-world_map_2_metrics_section = dbc.Container(
+complex_1_map_section = dbc.Container(
     [
     # Add dropdown and buttons here
         dbc.Row(
@@ -75,7 +75,7 @@ world_map_2_metrics_section = dbc.Container(
                             [
                                 dcc.Graph(
                                     id='data-visualization',
-                                    figure=world_map_fig_2_metrics
+                                    figure=world_map_for_complex_1
 
                                 ),
                                 html.Br(),
@@ -94,7 +94,7 @@ world_map_2_metrics_section = dbc.Container(
     ]
 )
 
-world_map_fig_2_metrics_second = px.scatter_geo(df_complex_2, locations = 'CODE',
+world_map_for_complex_2 = px.scatter_geo(df_complex_2, locations = 'CODE',
                     animation_frame='YEAR',
                     animation_group='ENTITY',
                     color='ENTITY',
@@ -102,9 +102,9 @@ world_map_fig_2_metrics_second = px.scatter_geo(df_complex_2, locations = 'CODE'
                     size='LIFE_EXPECTANCY_AT_BIRTH',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'LIFE_EXPECTANCY_AT_BIRTH': True, 'LIFE_EXPECTANCY_PERCENTILE': True, 'CODE': False, 'DIFFERENCE_IN_PUBLIC_HEALTH_EXPENDITURE_PERCENTAGE_OF_GDP_TO_YEARS_AVERAGE': True})
-world_map_fig_2_metrics_second.update_layout(width=1500, height=1000)
+world_map_for_complex_2.update_layout(width=1500, height=1000)
 
-world_map_fig_2_metrics_second_section = dbc.Container(
+complex_2_map_section = dbc.Container(
     [
     # Add dropdown and buttons here
         dbc.Row(
@@ -129,7 +129,7 @@ world_map_fig_2_metrics_second_section = dbc.Container(
                             [
                                 dcc.Graph(
                                     id='data-visualization',
-                                    figure=world_map_fig_2_metrics_second
+                                    figure=world_map_for_complex_2
 
                                 ),
                                 html.Br(),
@@ -149,7 +149,7 @@ world_map_fig_2_metrics_second_section = dbc.Container(
 )
 
 def world_map_render():
-    return world_map_2_metrics_section
+    return complex_1_map_section
 
 def world_map_2_render():
-    return world_map_fig_2_metrics_second_section
+    return complex_2_map_section
