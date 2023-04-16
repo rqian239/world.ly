@@ -65,16 +65,7 @@ complex_1_map_section = dbc.Container(
             [
                 dbc.Col(
                     [
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                     html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                         html.Div(
                             [
                                 dcc.Graph(
@@ -82,16 +73,12 @@ complex_1_map_section = dbc.Container(
                                     figure=world_map_for_complex_1
 
                                 ),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
                             ],
                             # className="center-content"
                         )
                     ],
-                    className="centered"
+                    className="centered",
+                    style={'margin-top': '100px', 'margin-bottom': '100px'}
                 )
             ]
         ),
@@ -119,16 +106,7 @@ complex_2_map_section = dbc.Container(
             [
                 dbc.Col(
                     [
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                     html.H1("Countries in the 90+ percentile for life expectancy for each year, along with the difference in their public health expenditure compared to the year's average"),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                         html.Div(
                             [
                                 dcc.Graph(
@@ -136,16 +114,12 @@ complex_2_map_section = dbc.Container(
                                     figure=world_map_for_complex_2
 
                                 ),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
                             ],
                             # className="center-content"
                         )
                     ],
-                    className="centered"
+                    className="centered",
+                    style={'margin-top': '100px', 'margin-bottom': '100px'}
                 )
             ]
         ),
@@ -173,16 +147,7 @@ complex_3_map_section = dbc.Container(
             [
                 dbc.Col(
                     [
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                     html.H1("Country with Highest GDP for each Continent along with Corresponding Percent Growth in GDP and Difference in Per Capita Energy Use Compared to the Content's Average"),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                         html.Div(
                             [
                                 dcc.Graph(
@@ -198,7 +163,8 @@ complex_3_map_section = dbc.Container(
                             # className="center-content"
                         )
                     ],
-                    className="centered"
+                    className="centered",
+                    style={'margin-top': '100px', 'margin-bottom': '100px'}
                 )
             ]
         ),
@@ -226,16 +192,7 @@ complex_4_map_section = dbc.Container(
             [
                 dbc.Col(
                     [
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                     html.H1("HDI"),
-                    html.Br(),
-                    html.Br(),
-                    html.Br(),
                         html.Div(
                             [
                                 dcc.Graph(
@@ -251,7 +208,8 @@ complex_4_map_section = dbc.Container(
                             # className="center-content"
                         )
                     ],
-                    className="centered"
+                    className="centered",
+                    style={'margin-top': '100px', 'margin-bottom': '100px'}
                 )
             ]
         ),
