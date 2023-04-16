@@ -68,7 +68,7 @@ world_map_for_complex_1 = px.scatter_geo(df_complex_1, locations = 'CODE',
                     size='CO2_EMISSIONS_METRIC_TONS',
                     projection='orthographic',
                     hover_data={'COUNTRY': True, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH': True, 'CO2_EMISSIONS_METRIC_TONS': True, 'CODE': False, 'PRIMARY_ELECTRICITY_SOURCE': True})
-world_map_for_complex_1.update_layout(width=1250, height=1000)
+world_map_for_complex_1.update_layout(width=1250, height=800)
 
 complex_1_map_section = html.Div(children=[
         html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
@@ -90,7 +90,7 @@ world_map_for_complex_2 = px.scatter_geo(df_complex_2, locations = 'CODE',
                     size='LIFE_EXPECTANCY_AT_BIRTH',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'LIFE_EXPECTANCY_AT_BIRTH': True, 'LIFE_EXPECTANCY_PERCENTILE': True, 'CODE': False, 'DIFFERENCE_IN_PUBLIC_HEALTH_EXPENDITURE_PERCENTAGE_OF_GDP_TO_YEARS_AVERAGE': True})
-world_map_for_complex_2.update_layout(width=1250, height=1000)
+world_map_for_complex_2.update_layout(width=1250, height=800)
 
 
 complex_2_map_section = html.Div(children=[
@@ -100,6 +100,8 @@ complex_2_map_section = html.Div(children=[
 
 # ---------------------------------------------------------------------------------------------- SECOND GLOBE ----------------------------------------------------------------------------------------------
 
+
+# ---------------------------------------------------------------------------------------------- THIRD GLOBE ----------------------------------------------------------------------------------------------
 world_map_for_complex_3 = px.scatter_geo(df_complex_3, locations = 'CODE',
                     animation_frame='YEAR',
                     animation_group='ENTITY',
@@ -108,42 +110,17 @@ world_map_for_complex_3 = px.scatter_geo(df_complex_3, locations = 'CODE',
                     size='GDP_PER_CAPITA',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'GDP_PER_CAPITA': True, 'GDP_PER_CAPITA_PERCENT_GROWTH': True, 'CODE': False, 'DIFFERENCE_IN_PER_CAPITA_ENERGY_USE_IN_KWH_COMPARED_TO_THE_YEARLY_AVERAGE': True})
-world_map_for_complex_3.update_layout(width=1500, height=1000)
+world_map_for_complex_3.update_layout(width=1250, height=800)
 
-complex_3_map_section = dbc.Container(
-    [
-    # Add dropdown and buttons here
-        dbc.Row(
-            [
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                    html.H1("Country with Highest GDP for each Continent along with Corresponding Percent Growth in GDP and Difference in Per Capita Energy Use Compared to the Content's Average"),
-                        html.Div(
-                            [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=world_map_for_complex_3
-                                ),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                            ],
-                            # className="center-content"
-                        )
-                    ],
-                    className="centered",
-                    style={'margin-top': '100px', 'margin-bottom': '100px'}
-                )
-            ]
-        ),
-    ]
-)
+
+complex_3_map_section = html.Div(children=[
+        html.H1("Country with Highest GDP for each Continent along with Corresponding Percent Growth in GDP and Difference in Per Capita Energy Use Compared to the Content's Average"),
+        dcc.Graph(id='data-visualization', figure=world_map_for_complex_3),
+], className="centered")
+# ---------------------------------------------------------------------------------------------- THIRD GLOBE ----------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------------------------- FOURTH GLOBE ----------------------------------------------------------------------------------------------
 
 world_map_for_complex_4 = px.scatter_geo(df_complex_4, locations = 'CODE',
                     animation_frame='YEAR',
@@ -155,40 +132,17 @@ world_map_for_complex_4 = px.scatter_geo(df_complex_4, locations = 'CODE',
                     hover_data={'ENTITY': True, 'HDI_INDEX': True, 'CODE': False})
 world_map_for_complex_4.update_layout(width=1500, height=1000)
 
-complex_4_map_section = dbc.Container(
-    [
-    # Add dropdown and buttons here
-        dbc.Row(
-            [
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                    html.H1("HDI"),
-                        html.Div(
-                            [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=world_map_for_complex_4
-                                ),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                            ],
-                            # className="center-content"
-                        )
-                    ],
-                    className="centered",
-                    style={'margin-top': '100px', 'margin-bottom': '100px'}
-                )
-            ]
-        ),
-    ]
-)
+
+
+complex_4_map_section = html.Div(children=[
+        html.H1("Human Development Index (HDI)"),
+        dcc.Graph(id='data-visualization', figure=world_map_for_complex_4),
+], className="centered")
+
+# ---------------------------------------------------------------------------------------------- FOURTH GLOBE ----------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------------------------- FIFTH GLOBE ----------------------------------------------------------------------------------------------
 
 world_map_for_complex_5 = px.scatter_geo(df_complex_5, locations = 'CODE',
                     animation_frame='YEAR',
@@ -235,6 +189,10 @@ complex_5_map_section = dbc.Container(
     ]
 )
 
+# ---------------------------------------------------------------------------------------------- FIFTH GLOBE ----------------------------------------------------------------------------------------------
+
+
+# MAIN COMPLEX QUERY SECTION
 complex_query_section = dbc.Container(
     [
     # Add dropdown and buttons here
@@ -274,6 +232,8 @@ complex_query_section = dbc.Container(
     ],
     # className = 'scatter-plot-container'
 )
+
+# RENDER FUNCTIONS
 
 def render():
     return complex_query_section
