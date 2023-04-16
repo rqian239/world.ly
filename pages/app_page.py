@@ -40,11 +40,13 @@ def app_page(app: dash.Dash):
 
     # COMPLEX QUERY SECTION
 
-    world_map_2_metrics_section = world_map.world_map_render()
-    world_map_fig_2_metrics_second_section = world_map.world_map_2_render()
-    world_map_3 = world_map.world_map_3_render()
-    world_map_4 = world_map.world_map_4_render()
+    # world_map_2_metrics_section = world_map.world_map_render()
+    # world_map_fig_2_metrics_second_section = world_map.world_map_2_render()
+    # world_map_3 = world_map.world_map_3_render()
+    # world_map_4 = world_map.world_map_4_render()
+
+    complex_query_section = world_map.render()
     
 
-    layout = html.Div([nav, scatter_plot_section, world_map_2_metrics_section, world_map_fig_2_metrics_second_section, world_map_3, world_map_4, ftr], className="make-footer-stick")
+    layout = html.Div([nav, scatter_plot_section, complex_query_section, ftr], className="make-footer-stick")
     return layout

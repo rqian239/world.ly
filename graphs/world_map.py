@@ -216,6 +216,49 @@ complex_4_map_section = dbc.Container(
     ]
 )
 
+complex_query_section = dbc.Container(
+    [
+    # Add dropdown and buttons here
+        dbc.Row(
+            dbc.Col(
+                [
+                html.H4('Use the dropdown to select complex insights into our demographic data.'),
+                dcc.Dropdown(
+                    id=ids.COMPLEX_QUERY_DROPDOWN,
+                    options=[{'label': i, 'value': i} for i in data.complex_queries],
+                    value=None,
+                    multi=False,
+                    className = 'dropdown-style',
+                ),
+                ],
+                style={'margin-top': '50px', 'margin-bottom': '50px'},
+                className='centered'
+            )
+        ),
+        # dbc.Row(
+        #     [
+        #         dbc.Col(
+        #             [
+        #                 html.Div(
+        #                     children=[
+        #                         dcc.Graph(
+        #                             id=ids.STATIC_SCATTER_PLOT,
+        #                             figure=scatter_fig,
+        #                         ),
+        #                     ],
+        #                     id=ids.STATIC_SCATTER_PLOT_CONTAINER,
+        #                 )
+        #             ]
+        #         )
+        #     ]
+        # ),
+    ],
+    # className = 'scatter-plot-container'
+)
+
+def render():
+    return complex_query_section
+
 def world_map_render():
     return complex_1_map_section
 
