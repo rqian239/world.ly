@@ -10,6 +10,7 @@ from components.footer import footer
 from dash_iconify import DashIconify
 
 import functions
+import ids
 
 nav = navbar()
 ftr = footer()
@@ -85,9 +86,6 @@ query_string = 'SELECT SUM(count) total_tuples FROM' \
                 ' (SELECT COUNT(*) as count FROM CarbonFootprint) )'
 
 
-df = functions.query_db(query_string)
-total_num_tuples = df['TOTAL_TUPLES'][0]
-
 body = dbc.Container(
     [
         dbc.Row(
@@ -130,12 +128,12 @@ body = dbc.Container(
                         #html.H3(f"Total number of data points (tuples) in our dataset: {total_num_tuples}"),
                         html.Button(
                             "Display Total Tuples",
-                            id="total-tuples-button-about-page",
+                            id=ids.TOTAL_TUPLES_BUTTON,
                             className="btn btn-lg btn-primary total-tuples-button-about-page",
                             type="button"
                         ),
                         html.Div(
-                            id='output'
+                            id=ids.TOTAL_NUMBER_TUPLES_CONTAINER,
                         )
                     ]
                 )
@@ -293,6 +291,11 @@ body = dbc.Container(
     className="mt-4 body-flex-wrapper",
 )
 
+
+def query_for_all_tuples():
+    df = functions.query_db(query_string)
+    total_num_tuples = df['TOTAL_TUPLES'][0]
+    return total_num_tuples
 
 def about_page(app: dash.Dash):
     layout = html.Div([nav, body, ftr], className="make-footer-stick")
