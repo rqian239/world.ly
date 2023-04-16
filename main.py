@@ -187,6 +187,13 @@ def update_world_map(selection):
     else:
         return html.Div([html.H3('No valid selection')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
 
+#BUTTON FOR TOTAL NUMBER OF TUPLES
+@app.callback(
+    Output('output', 'children'),
+    [Input('get-started-button-about-page', 'n_clicks')])
+def display_total_tuples(n_clicks):
+    if n_clicks is not None:
+        return f"Total number of data points (tuples) in our dataset: {about_page.total_num_tuples}"
 
 if __name__ == '__main__':
     app.run()

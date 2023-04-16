@@ -88,7 +88,6 @@ query_string = 'SELECT SUM(count) total_tuples FROM' \
 df = functions.query_db(query_string)
 total_num_tuples = df['TOTAL_TUPLES'][0]
 
-
 body = dbc.Container(
     [
         dbc.Row(
@@ -128,7 +127,16 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.H3(f"Total number of data points (tuples) in our dataset: {total_num_tuples}"),
+                        #html.H3(f"Total number of data points (tuples) in our dataset: {total_num_tuples}"),
+                        html.Button(
+                            "Display Total Tuples",
+                            id="total-tuples-button-about-page",
+                            className="btn btn-lg btn-primary total-tuples-button-about-page",
+                            type="button"
+                        ),
+                        html.Div(
+                            id='output'
+                        )
                     ]
                 )
             ],
