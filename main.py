@@ -181,7 +181,9 @@ def update_world_map(selection):
     elif selection == data.complex_queries[2]:
         return world_map.render_world_map_3()
     elif selection == data.complex_queries[3]:
-        return world_map.render_world_map_4()     
+        return world_map.render_world_map_4()
+    elif selection == data.complex_queries[4]:
+        return world_map.render_world_map_5()
     else:
         return html.Div([html.H3('No valid selection')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
 

@@ -58,6 +58,9 @@ df_complex_2.fillna(0, inplace=True)
 # ---------------------------------------------------------------------------------------------- FIX SECOND GLOBE ----------------------------------------------------------------------------------------------
 
 
+# SORT FIFTH DF
+df_complex_5 = df_complex_5.sort_values(by='YEAR')
+
 # ---------------------------------------------------------------------------------------------- FIRST GLOBE ----------------------------------------------------------------------------------------------
 
 world_map_for_complex_1 = px.scatter_geo(df_complex_1, locations = 'CODE',
@@ -130,7 +133,7 @@ world_map_for_complex_4 = px.scatter_geo(df_complex_4, locations = 'CODE',
                     size='HDI_INDEX',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'HDI_INDEX': True, 'CODE': False})
-world_map_for_complex_4.update_layout(width=1500, height=1000)
+world_map_for_complex_4.update_layout(width=1250, height=800)
 
 
 
@@ -152,42 +155,14 @@ world_map_for_complex_5 = px.scatter_geo(df_complex_5, locations = 'CODE',
                     size='POPULATION_DENSITY',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'POPULATION_DENSITY': True, 'CODE': False, 'DIFFERENCE_IN_ENERGY_CONSUMPTION_PER_CAPITA_IN_KWH': True, 'DIFFERENCE_IN_FOREST_AREA_SQUARE_KM': True, 'DIFFERENCE_IN_DEFORESTATION_SQUARE_KM': True, 'DIFFERENCE_IN_PERCENT_OF_ADULTS_OVERWEIGHT': True, 'DIFFERENCE_IN_CO2_EMISSIONS_METRIC_TONS': True, 'DIFFERENCE_IN_AVG_LITERACY_RATE': True})
-world_map_for_complex_5.update_layout(width=1500, height=1000)
+world_map_for_complex_5.update_layout(width=1250, height=800)
 
-complex_5_map_section = dbc.Container(
-    [
-    # Add dropdown and buttons here
-        dbc.Row(
-            [
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                    html.H1("HDI"),
-                        html.Div(
-                            [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=world_map_for_complex_5
-                                ),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                                html.Br(),
-                            ],
-                            # className="center-content"
-                        )
-                    ],
-                    className="centered",
-                    style={'margin-top': '100px', 'margin-bottom': '100px'}
-                )
-            ]
-        ),
-    ]
-)
+
+
+complex_5_map_section = html.Div(children=[
+                                    html.H1("Population Density Dependency of Associated Metrics"),
+                                    dcc.Graph(id='data-visualization', figure=world_map_for_complex_5),
+                                ], className="centered")
 
 # ---------------------------------------------------------------------------------------------- FIFTH GLOBE ----------------------------------------------------------------------------------------------
 

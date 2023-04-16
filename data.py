@@ -90,6 +90,7 @@ complex_queries = [
     "Highest Life Expectancies & Difference in Public Health Expenditure",
     "Country with Highest GDP and Associated Parameters Per Continent",
     "Human Development Index",
+    "Population Density Dependency of Associated Metrics",
 
 
 ]
