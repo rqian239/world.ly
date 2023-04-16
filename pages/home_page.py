@@ -27,7 +27,7 @@ body = dbc.Container(
                             Welcome!
                             This application gives you the power to discover complex insights into global demographic data.\n world.ly
                             allows you to study notable trends for the countries and metrics you choose. Explore and compare metrics from
-                            various sectors like health, education, and economy.""",
+                            various sectors like health, education, economy, etc.""",
                         ),
                         # Div for get started button
                         html.Div(
@@ -70,6 +70,7 @@ body = dbc.Container(
                     [
                         html.H3("Sectors of Interest"),
                         html.Hr(),
+                        html.Br(),
                     ]
                 ),
 
@@ -82,9 +83,19 @@ body = dbc.Container(
                 # Add a bunch of these dbc.Col to add icons for each sector
                 dbc.Col(
                     [
-                        html.H3("Health"),
+                        html.H3("Economy"),
                         # Search for icons here: https://icon-sets.iconify.design/
                         # Replace the name of the icon in the icon="" field
+                        DashIconify(
+                            icon="ph:piggy-bank-duotone",
+                            width=50,
+                            height=50,
+                        )
+                    ],
+                ),
+                dbc.Col(
+                    [
+                        html.H3("Health"),
                         DashIconify(
                             icon="material-symbols:health-metrics",
                             width=50,
@@ -94,9 +105,9 @@ body = dbc.Container(
                 ),
                 dbc.Col(
                     [
-                        html.H3("Economy"),
+                        html.H3("Society"),
                         DashIconify(
-                            icon="ph:piggy-bank-duotone",
+                            icon="material-symbols:emoji-people-rounded",
                             width=50,
                             height=50,
                         )
@@ -107,6 +118,26 @@ body = dbc.Container(
                         html.H3("Energy"),
                         DashIconify(
                             icon="mdi:energy-circle",
+                            width=50,
+                            height=50,
+                        )
+                    ],
+                ),
+                dbc.Col(
+                    [
+                        html.H3("Education"),
+                        DashIconify(
+                            icon="ri:graduation-cap-fill",
+                            width=50,
+                            height=50,
+                        )
+                    ],
+                ),
+                dbc.Col(
+                    [
+                        html.H3("Enviroment"),
+                        DashIconify(
+                            icon="mdi:pine-tree-variant",
                             width=50,
                             height=50,
                         )
@@ -131,7 +162,7 @@ body = dbc.Container(
                     className="centered",
                 )
             ],
-            style={"margin-top": "100px", "margin-bottom": "100px"},
+            style={"margin-top": "100px", "margin-bottom": "50px"},
         ),
     ],
     # mt-4 adds margin to the top
