@@ -16,6 +16,13 @@ import ids
 import functions
 import data
 
+# BLANK GLOBE MAP
+blank_data = pd.DataFrame(columns=["lat", "lon"])
+
+# Create a blank scatter geo plot
+blank_globe_fig = px.scatter_geo(blank_data, lat="lat", lon="lon")
+
+# COMPLEX QUERIES
 query_string_complex_globe_1 = 'WITH countries_contributing_to_75_percent_of_global_CO2_emissions AS ( SELECT year, code, entity, CO2_emissions_metric_tons     FROM     (     SELECT cf1.year, entity, code, CO2_emissions_metric_tons,  SUM(CO2_emissions_metric_tons) over(PARTITION BY year ORDER BY CO2_emissions_metric_tons DESC) running_sum     FROM CarbonFootprint cf1     WHERE entity != \'World\'     ORDER BY CO2_emissions_metric_tons DESC     ) cf1 WHERE running_sum < (SELECT CO2_emissions_metric_tons*0.9 FROM CarbonFootprint WHERE entity = \'World\' AND year = cf1.year) )  SELECT year, code, entity country, (Electricity_from_coal_in_TWh + Electricity_fom_gas_in_TWh + Electricity_from_nuclear_in_TWh + Electricity_from_hydro_in_TWh + Electricity_from_solar_in_TWh + Electricity_from_oil_in_TWh + Electricity_from_wind_in_TWh) total_electricity_production_in_TWh, CO2_emissions_metric_tons,     Case         WHEN Electricity_from_coal_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_coal_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_from_coal_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_from_coal_in_TWh > Electricity_from_solar_in_TWh AND Electricity_from_coal_in_TWh > Electricity_from_oil_in_TWh AND Electricity_from_coal_in_TWh > Electricity_from_wind_in_TWh THEN \'Coal\'         WHEN Electricity_fom_gas_in_TWh > Electricity_from_coal_in_TWh AND Electricity_fom_gas_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_fom_gas_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_fom_gas_in_TWh > Electricity_from_solar_in_TWh AND Electricity_fom_gas_in_TWh > Electricity_from_oil_in_TWh AND Electricity_fom_gas_in_TWh > Electricity_from_wind_in_TWh THEN \'Gas\'         WHEN Electricity_from_nuclear_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_nuclear_in_TWh > Electricity_from_coal_in_TWh AND Electricity_from_nuclear_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_from_nuclear_in_TWh > Electricity_from_solar_in_TWh AND Electricity_from_nuclear_in_TWh > Electricity_from_oil_in_TWh AND Electricity_from_nuclear_in_TWh > Electricity_from_wind_in_TWh THEN \'Nuclear\'         WHEN Electricity_from_hydro_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_hydro_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_from_hydro_in_TWh > Electricity_from_coal_in_TWh AND Electricity_from_hydro_in_TWh > Electricity_from_solar_in_TWh AND Electricity_from_hydro_in_TWh > Electricity_from_oil_in_TWh AND Electricity_from_hydro_in_TWh > Electricity_from_wind_in_TWh THEN \'Hydroelectric\'         WHEN Electricity_from_solar_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_solar_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_from_solar_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_from_solar_in_TWh > Electricity_from_coal_in_TWh AND Electricity_from_solar_in_TWh > Electricity_from_oil_in_TWh AND Electricity_from_solar_in_TWh > Electricity_from_wind_in_TWh THEN \'Solar\'         WHEN Electricity_from_oil_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_oil_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_from_oil_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_from_oil_in_TWh > Electricity_from_solar_in_TWh AND Electricity_from_oil_in_TWh > Electricity_from_coal_in_TWh AND Electricity_from_oil_in_TWh > Electricity_from_wind_in_TWh THEN \'Oil\'         WHEN Electricity_from_wind_in_TWh > Electricity_fom_gas_in_TWh AND Electricity_from_wind_in_TWh > Electricity_from_nuclear_in_TWh AND Electricity_from_wind_in_TWh > Electricity_from_hydro_in_TWh AND Electricity_from_wind_in_TWh > Electricity_from_solar_in_TWh AND Electricity_from_wind_in_TWh > Electricity_from_oil_in_TWh AND Electricity_from_wind_in_TWh > Electricity_from_coal_in_TWh THEN \'Wind\'         END AS primary_electricity_source FROM (     SELECT e.year, c.CO2_emissions_metric_tons, c.code, c.entity, Electricity_from_coal_in_TWh, Electricity_fom_gas_in_TWh, Electricity_from_nuclear_in_TWh, Electricity_from_hydro_in_TWh, Electricity_from_solar_in_TWh, Electricity_from_oil_in_TWh, Electricity_from_wind_in_TWh, Electricity_from_bioenergy_in_TWh, Other_renewables_excluding_bioenergy_in_TWh     FROM countries_contributing_to_75_percent_of_global_CO2_emissions c, ElectricityProductionBySource e     WHERE e.code = c.code AND e.year = c.year ) ORDER BY year'
 query_string_complex_globe_2 = 'SELECT l.code, l.entity, l.year, life_expectancy_at_birth, life_expectancy_percentile, public_health_expenditure_percentage_of_gdp-avg_public_health_expenditure_percentage_of_gdp difference_in_public_health_expenditure_percentage_of_gdp_to_years_average FROM (     SELECT *     FROM     (     SELECT code, year, entity, life_expectancy_at_birth,  ROUND(PERCENT_RANK() OVER(PARTITION BY YEAR ORDER BY life_expectancy_at_birth),2) life_expectancy_percentile     FROM LifeExpectancy     ORDER BY year     )     WHERE life_expectancy_percentile > 0.9 ) l LEFT OUTER JOIN (SELECT code,year, public_health_expenditure_percentage_of_gdp, AVG(public_health_expenditure_percentage_of_gdp) OVER(PARTITION BY YEAR ORDER BY public_health_expenditure_percentage_of_gdp) avg_public_health_expenditure_percentage_of_gdp FROM PublicHealthGovExpenditureShareGDP) h ON (l.code = h.code AND l.year = h.year)   '
 query_string_complex_globe_3 = 'SELECT RealGdpPerCapita.code, RealGdpPerCapita.entity, RealGdpPerCapita.year, GDP_per_capita, GDP_per_capita_percent_growth, Energy_consumption_per_capita_in_kwh - avg_Energy_consumption_per_capita_in_kwh difference_in_per_capita_energy_use_in_kwh_compared_to_the_yearly_average FROM (     SELECT RealGdpPerCapita.code, RealGdpPerCapita.entity, RealGdpPerCapita.year, GDP_per_capita, GDP_per_capita_percent_growth     FROM     (         SELECT RealGdpPerCapita.code, RealGdpPerCapita.entity, RealGdpPerCapita.year, GDP_per_capita, AVG(GDP_per_capita) OVER(PARTITION BY continent, RealGdpPerCapita.year ORDER BY GDP_per_capita) max_real_gdp_per_capita_per_continent_and_year         FROM RealGdpPerCapita, Continents         WHERE RealGdpPerCapita.code = Continents.code     ) RealGdpPerCapita     LEFT OUTER JOIN GdpPerCapitaGrowth ON (GdpPerCapitaGrowth.code = RealGdpPerCapita.code AND GdpPerCapitaGrowth.year = RealGdpPerCapita.year)     WHERE GDP_per_capita = max_real_gdp_per_capita_per_continent_and_year ) RealGDPPerCapita LEFT OUTER JOIN (SELECT EnergyPerPerson.code, EnergyPerPerson.year, Energy_consumption_per_capita_in_kwh, AVG(Energy_consumption_per_capita_in_kwh) OVER(PARTITION BY EnergyPerPerson.YEAR, continent ORDER BY Energy_consumption_per_capita_in_kwh) avg_Energy_consumption_per_capita_in_kwh FROM EnergyPerPerson, Continents WHERE Continents.code = EnergyPerPerson.code AND Continents.year = EnergyPerPerson.year) EnergyPerPerson  ON RealGDPPerCapita.code = EnergyPerPerson.code AND RealGDPPerCapita.year = EnergyPerPerson.year ORDER BY YEAR '
@@ -235,23 +242,23 @@ complex_query_section = dbc.Container(
                 className='centered'
             )
         ),
-        # dbc.Row(
-        #     [
-        #         dbc.Col(
-        #             [
-        #                 html.Div(
-        #                     children=[
-        #                         dcc.Graph(
-        #                             id=ids.STATIC_SCATTER_PLOT,
-        #                             figure=scatter_fig,
-        #                         ),
-        #                     ],
-        #                     id=ids.STATIC_SCATTER_PLOT_CONTAINER,
-        #                 )
-        #             ]
-        #         )
-        #     ]
-        # ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        html.Div(
+                            children=[
+                                dcc.Graph(
+                                    id=ids.COMPLEX_QUERY_WORLD_MAP,
+                                    figure=blank_globe_fig,
+                                ),
+                            ],
+                            id=ids.COMPLEX_QUERY_CONTAINER,
+                        )
+                    ]
+                )
+            ]
+        ),
     ],
     # className = 'scatter-plot-container'
 )
