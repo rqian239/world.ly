@@ -33,6 +33,8 @@ df_complex_2 = functions.query_db(query_string_complex_globe_2)
 df_complex_3 = functions.query_db(query_string_complex_globe_3)
 df_complex_4 = functions.query_db(query_string_complex_globe_4)
 
+# ---------------------------------------------------------------------------------------------- FIX SECOND GLOBE ----------------------------------------------------------------------------------------------
+
 # Get unique country code combinations from complex 2 dataframe
 unique_country_code_combos_2 = df_complex_2.groupby(['ENTITY', 'CODE']).size().reset_index().drop(0, axis=1)
 unique_country_code_combos_2.drop_duplicates()
@@ -50,6 +52,11 @@ df_complex_2.fillna(0, inplace=True)
 # df_complex_2 = df_complex_2.sort_values(by='YEAR')
 # print(df_complex_2.head(50))
 
+# ---------------------------------------------------------------------------------------------- FIX SECOND GLOBE ----------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------------------------- FIRST GLOBE ----------------------------------------------------------------------------------------------
+
 world_map_for_complex_1 = px.scatter_geo(df_complex_1, locations = 'CODE',
                     animation_frame='YEAR',
                     animation_group='COUNTRY',
@@ -65,6 +72,12 @@ complex_1_map_section = html.Div(children=[
         dcc.Graph(id='data-visualization', figure=world_map_for_complex_1)
 ], className="centered")
 
+# ---------------------------------------------------------------------------------------------- FIRST GLOBE ----------------------------------------------------------------------------------------------
+
+
+
+
+# ---------------------------------------------------------------------------------------------- SECOND GLOBE ----------------------------------------------------------------------------------------------
 
 world_map_for_complex_2 = px.scatter_geo(df_complex_2, locations = 'CODE',
                     animation_frame='YEAR',
@@ -74,38 +87,15 @@ world_map_for_complex_2 = px.scatter_geo(df_complex_2, locations = 'CODE',
                     size='LIFE_EXPECTANCY_AT_BIRTH',
                     projection='orthographic',
                     hover_data={'ENTITY': True, 'LIFE_EXPECTANCY_AT_BIRTH': True, 'LIFE_EXPECTANCY_PERCENTILE': True, 'CODE': False, 'DIFFERENCE_IN_PUBLIC_HEALTH_EXPENDITURE_PERCENTAGE_OF_GDP_TO_YEARS_AVERAGE': True})
-world_map_for_complex_2.update_layout(width=1500, height=1000)
+world_map_for_complex_2.update_layout(width=1250, height=1000)
 
-complex_2_map_section = dbc.Container(
-    [
-    # Add dropdown and buttons here
-        dbc.Row(
-            [
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                    html.H1("Countries in the 90+ percentile for life expectancy for each year, along with the difference in their public health expenditure compared to the year's average"),
-                        html.Div(
-                            [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=world_map_for_complex_2
 
-                                ),
-                            ],
-                            # className="center-content"
-                        )
-                    ],
-                    className="centered",
-                    style={'margin-top': '100px', 'margin-bottom': '100px'}
-                )
-            ]
-        ),
-    ]
-)
+complex_2_map_section = html.Div(children=[
+        html.H1("Countries in the 90+ percentile for life expectancy for each year, along with the difference in their public health expenditure compared to the year's average"),
+        dcc.Graph(id='data-visualization', figure=world_map_for_complex_2),
+], className="centered")
+
+# ---------------------------------------------------------------------------------------------- SECOND GLOBE ----------------------------------------------------------------------------------------------
 
 world_map_for_complex_3 = px.scatter_geo(df_complex_3, locations = 'CODE',
                     animation_frame='YEAR',

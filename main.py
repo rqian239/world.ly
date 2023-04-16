@@ -177,7 +177,7 @@ def update_world_map(selection):
     elif selection == data.complex_queries[0]:
         return world_map.render_world_map_1()
     elif selection == data.complex_queries[1]:
-        return html.Div([html.H3('Selection 2')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
+        return world_map.render_world_map_2()
     elif selection == data.complex_queries[2]:
         return html.Div([html.H3('Selection 3')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
     elif selection == data.complex_queries[3]:
