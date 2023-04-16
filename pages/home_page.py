@@ -26,8 +26,8 @@ body = dbc.Container(
                             """\
                             Welcome!
                             This application gives you the power to discover complex insights into global demographic data.\n world.ly
-                            allows you to study notable trends for the countries and metrics you choose. Explore and compare metrics from
-                            various sectors like health, education, economy, etc.""",
+                            give you an insider view of pertinent global trends with respect to our broad category of parameters. Explore and compare metrics from
+                            a variety of sectors (e.g., health, environment, education, economy, etc.) with our suite of dynamic, interactive visualizations.""",
                         ),
                         # Div for get started button
                         html.Div(
