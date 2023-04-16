@@ -22,6 +22,8 @@ import numpy as np
 import data
 import graphs.world_map as world_map
 
+from pages.about_page import query_for_all_tuples
+
 # Themes? Try FLATLY, LUX, QUARTZ
 # https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
@@ -187,6 +189,13 @@ def update_world_map(selection):
     else:
         return html.Div([html.H3('No valid selection')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
 
+#BUTTON FOR TOTAL NUMBER OF TUPLES
+@app.callback(
+    Output(ids.TOTAL_NUMBER_TUPLES_CONTAINER, 'children'),
+    [Input(ids.TOTAL_TUPLES_BUTTON, 'n_clicks')])
+def display_total_tuples(n_clicks):
+    if n_clicks is not None:
+       return html.Div([html.H3(f"Total number of data points (tuples) in our dataset: {query_for_all_tuples()}")], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
 
 if __name__ == '__main__':
     app.run()
