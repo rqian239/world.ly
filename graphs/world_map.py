@@ -35,11 +35,10 @@ for index, row in unique_country_code_combos_2.iterrows():
     new_row = {'YEAR': 1753, 'CODE': code, 'ENTITY': entity, 'LIFE_EXPECTANCY_AT_BIRTH': None, 'LIFE_EXPECTANCY_PERCENTILE': None, 'DIFFERENCE_IN_PUBLIC_HEALTH_EXPENDITURE_PERCENTAGE_OF_GDP_TO_YEARS_AVERAGE': None}
     df_complex_2 = df_complex_2._append(new_row, ignore_index=True)
 
-
+# Fill all the NaN values with 0
 df_complex_2.fillna(0, inplace=True)
-df_complex_2 = df_complex_2.sort_values(by='YEAR')
-
-print(df_complex_2.head(50))
+# df_complex_2 = df_complex_2.sort_values(by='YEAR')
+# print(df_complex_2.head(50))
 
 world_map_fig_2_metrics = px.scatter_geo(df_complex_1, locations = 'CODE',
                     animation_frame='YEAR',
