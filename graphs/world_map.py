@@ -195,9 +195,9 @@ world_map_for_complex_5 = px.scatter_geo(df_complex_5, locations = 'CODE',
                     animation_group='ENTITY',
                     color='ENTITY',
                     hover_name='ENTITY',
-                    size='HDI_INDEX',
+                    size='POPULATION_DENSITY',
                     projection='orthographic',
-                    hover_data={'ENTITY': True, 'HDI_INDEX': True, 'CODE': False})
+                    hover_data={'ENTITY': True, 'POPULATION_DENSITY': True, 'CODE': False, 'DIFFERENCE_IN_ENERGY_CONSUMPTION_PER_CAPITA_IN_KWH': True, 'DIFFERENCE_IN_FOREST_AREA_SQUARE_KM': True, 'DIFFERENCE_IN_DEFORESTATION_SQUARE_KM': True, 'DIFFERENCE_IN_PERCENT_OF_ADULTS_OVERWEIGHT': True, 'DIFFERENCE_IN_CO2_EMISSIONS_METRIC_TONS': True, 'DIFFERENCE_IN_AVG_LITERACY_RATE': True})
 world_map_for_complex_5.update_layout(width=1500, height=1000)
 
 complex_5_map_section = dbc.Container(
