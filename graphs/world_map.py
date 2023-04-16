@@ -36,6 +36,21 @@ df_complex_3 = functions.query_db(query_string_complex_globe_3)
 df_complex_4 = functions.query_db(query_string_complex_globe_4)
 df_complex_5 = functions.query_db(query_string_complex_globe_5)
 
+
+# ---------------------------------------------------------------------------------------------- FIX FIRST GLOBE ----------------------------------------------------------------------------------------------
+unique_country_code_combos_1 = df_complex_1.groupby(['COUNTRY', 'CODE']).size().reset_index().drop(0, axis=1)
+unique_country_code_combos_1.drop_duplicates()
+
+# Append the new rows to the dataframe in a loop to fill in the missing years in complex_4
+for index, row in unique_country_code_combos_1.iterrows():
+    country = row['COUNTRY']
+    code = row['CODE']
+    new_row = {'YEAR': 1985, 'CODE': code, 'COUNTRY': country, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH' : 0, 'CO2_EMISSIONS_METRIC_TONS': 0, 'PRIMARY_ELECTRICITY_SOURCE': 0}
+    df_complex_1 = df_complex_1._append(new_row, ignore_index=True)
+    # df_complex_1.fillna(0, inplace=True)
+
+# ---------------------------------------------------------------------------------------------- FIX FIRST GLOBE ----------------------------------------------------------------------------------------------
+
 # ---------------------------------------------------------------------------------------------- FIX SECOND GLOBE ----------------------------------------------------------------------------------------------
 
 # Get unique country code combinations from complex 2 dataframe
@@ -58,8 +73,54 @@ df_complex_2.fillna(0, inplace=True)
 # ---------------------------------------------------------------------------------------------- FIX SECOND GLOBE ----------------------------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------------------------- FIX THIRD GLOBE ----------------------------------------------------------------------------------------------
+
+unique_country_code_combos_3 = df_complex_3.groupby(['ENTITY', 'CODE']).size().reset_index().drop(0, axis=1)
+unique_country_code_combos_3.drop_duplicates()
+
+# Append the new rows to the dataframe in a loop to fill in the missing years in complex_3
+for index, row in unique_country_code_combos_3.iterrows():
+    entity = row['ENTITY']
+    code = row['CODE']
+    new_row = {'YEAR': 1950, 'CODE': code, 'ENTITY': entity, 'GDP_PER_CAPITA': 0, 'GDP_PER_CAPITA_PERCENT_GROWTH': 0, 'DIFFERENCE_IN_PER_CAPITA_ENERGY_USE_IN_KWH_COMPARED_TO_THE_YEARLY_AVERAGE': 0}
+    df_complex_3 = df_complex_3._append(new_row, ignore_index=True)
+    # df_complex_3.fillna(0, inplace=True)
+# ---------------------------------------------------------------------------------------------- FIX THIRD GLOBE ----------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------------------------- FIX FOURTH GLOBE ----------------------------------------------------------------------------------------------
+
+unique_country_code_combos_4 = df_complex_4.groupby(['ENTITY', 'CODE']).size().reset_index().drop(0, axis=1)
+unique_country_code_combos_4.drop_duplicates()
+
+# Append the new rows to the dataframe in a loop to fill in the missing years in complex_4
+for index, row in unique_country_code_combos_4.iterrows():
+    entity = row['ENTITY']
+    code = row['CODE']
+    new_row = {'YEAR': 1990, 'CODE': code, 'ENTITY': entity, 'HDI_INDEX' : 0}
+    df_complex_4 = df_complex_4._append(new_row, ignore_index=True)
+    # df_complex_4.fillna(0, inplace=True)
+
+# ---------------------------------------------------------------------------------------------- FIX FOURTH GLOBE ----------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------------------------- FIX FIFTH GLOBE ----------------------------------------------------------------------------------------------
+
+unique_country_code_combos_5 = df_complex_5.groupby(['ENTITY', 'CODE']).size().reset_index().drop(0, axis=1)
+unique_country_code_combos_5.drop_duplicates()
+
+# Append the new rows to the dataframe in a loop to fill in the missing years in complex_4
+for index, row in unique_country_code_combos_5.iterrows():
+    entity = row['ENTITY']
+    code = row['CODE']
+    new_row = {'YEAR': 1961, 'CODE': code, 'ENTITY': entity, 'POPULATION_DENSITY': 0, 'DIFFERENCE_IN_ENERGY_CONSUMPTION_PER_CAPITA_IN_KWH': 0, 'DIFFERENCE_IN_FOREST_AREA_SQUARE_KM': 0, 'DIFFERENCE_IN_DEFORESTATION_SQUARE_KM': 0, 'DIFFERENCE_IN_PERCENT_OF_ADULTS_OVERWEIGHT' : 0, 'DIFFERENCE_IN_CO2_EMISSIONS_METRIC_TONS' : 0, 'DIFFERENCE_IN_AVG_LITERACY_RATE' : 0}
+    df_complex_5 = df_complex_5._append(new_row, ignore_index=True)
+    # df_complex_5.fillna(0, inplace=True)
+
 # SORT FIFTH DF
 df_complex_5 = df_complex_5.sort_values(by='YEAR')
+# ---------------------------------------------------------------------------------------------- FIX FIFTH GLOBE ----------------------------------------------------------------------------------------------
+
 
 # ---------------------------------------------------------------------------------------------- FIRST GLOBE ----------------------------------------------------------------------------------------------
 
