@@ -16,21 +16,21 @@ import ids
 import functions
 import data
 
-# query_string = 'SELECT education.code, education.entity, education.year, education.percentage_with_tertiary_education percentage_with_tertiary_education, income.gross_national_income_per_capita per_capita_income FROM ShareOfThePopulationWithCompletedTertiaryEducation education, GrossNationalIncomePerCapita income WHERE education.code = income.code AND education.year = income.year AND education.year = \'2010\' '
-# df = functions.query_db(query_string)
+query_string = 'SELECT education.code, education.entity, education.year, education.percentage_with_tertiary_education percentage_with_tertiary_education, income.gross_national_income_per_capita per_capita_income FROM ShareOfThePopulationWithCompletedTertiaryEducation education, GrossNationalIncomePerCapita income WHERE education.code = income.code AND education.year = income.year AND education.year = \'2010\' '
+df = functions.query_db(query_string)
 
-# # x='PERCENTAGE_WITH_TERTIARY_EDUCATION'
-# # y='PER_CAPITA_INCOME'
-# # coefficients = np.polyfit(x, y, 1)
-# # line = coefficients[0] * x + coefficients[1]
+# x='PERCENTAGE_WITH_TERTIARY_EDUCATION'
+# y='PER_CAPITA_INCOME'
+# coefficients = np.polyfit(x, y, 1)
+# line = coefficients[0] * x + coefficients[1]
 
-# scatter_fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
-# scatter_fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
-# scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
+scatter_fig = px.scatter(df, x='PERCENTAGE_WITH_TERTIARY_EDUCATION', y='PER_CAPITA_INCOME', hover_name='ENTITY', color='ENTITY')
+scatter_fig.update_xaxes(title_text=(functions.reformat_data_label("PERCENTAGE_WITH_TERTIARY_EDUCATION")))
+scatter_fig.update_yaxes(title_text=(functions.reformat_data_label("PER_CAPITA_INCOME")))
 
 # scatter_fig.add_trace(px.line(x=x, y=line).data[0])
 
-# scatter_fig.update_layout(width=1300, height=1000)
+scatter_fig.update_layout(width=1300, height=1000)
 
 scatter_plot_section = dbc.Container(
     [
@@ -68,7 +68,7 @@ scatter_plot_section = dbc.Container(
                             children=[
                                 dcc.Graph(
                                     id=ids.STATIC_SCATTER_PLOT,
-                                    figure=None,
+                                    figure=scatter_fig,
                                 ),
                             ],
                             id=ids.STATIC_SCATTER_PLOT_CONTAINER,
