@@ -20,6 +20,7 @@ import ids
 import graphs.scatter_plot as scatter_plot
 import numpy as np
 import data
+import graphs.world_map as world_map
 
 # Themes? Try FLATLY, LUX, QUARTZ
 # https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772
@@ -174,12 +175,7 @@ def update_world_map(selection):
     if selection is None:
         return html.Div([html.H3('Please select an option to create the data visualizations')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
     elif selection == data.complex_queries[0]:
-        # BLANK GLOBE MAP
-        blank_data = pd.DataFrame(columns=["lat", "lon"])
-
-        # Create a blank scatter geo plot
-        fig = px.scatter_geo(blank_data, lat="lat", lon="lon")
-        return dcc.Graph(id=ids.COMPLEX_QUERY_WORLD_MAP, figure=fig)
+        return world_map.render_world_map_1()
     elif selection == data.complex_queries[1]:
         return html.Div([html.H3('Selection 2')], style={'textAlign': 'center', 'margin-top': '20px', 'margin-bottom': '50px'})
     elif selection == data.complex_queries[2]:

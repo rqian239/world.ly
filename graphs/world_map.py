@@ -58,38 +58,13 @@ world_map_for_complex_1 = px.scatter_geo(df_complex_1, locations = 'CODE',
                     size='CO2_EMISSIONS_METRIC_TONS',
                     projection='orthographic',
                     hover_data={'COUNTRY': True, 'TOTAL_ELECTRICITY_PRODUCTION_IN_TWH': True, 'CO2_EMISSIONS_METRIC_TONS': True, 'CODE': False, 'PRIMARY_ELECTRICITY_SOURCE': True})
-world_map_for_complex_1.update_layout(width=1500, height=1000)
+world_map_for_complex_1.update_layout(width=1250, height=1000)
 
-complex_1_map_section = dbc.Container(
-    [
-    # Add dropdown and buttons here
-        dbc.Row(
-            [
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                    html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
-                        html.Div(
-                            [
-                                dcc.Graph(
-                                    id='data-visualization',
-                                    figure=world_map_for_complex_1
+complex_1_map_section = html.Div(children=[
+        html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
+        dcc.Graph(id='data-visualization', figure=world_map_for_complex_1)
+], className="centered")
 
-                                ),
-                            ],
-                            # className="center-content"
-                        )
-                    ],
-                    className="centered",
-                    style={'margin-top': '100px', 'margin-bottom': '100px'}
-                )
-            ]
-        ),
-    ]
-)
 
 world_map_for_complex_2 = px.scatter_geo(df_complex_2, locations = 'CODE',
                     animation_frame='YEAR',
@@ -259,20 +234,20 @@ complex_query_section = dbc.Container(
             ]
         ),
     ],
-    className = 'scatter-plot-container'
+    # className = 'scatter-plot-container'
 )
 
 def render():
     return complex_query_section
 
-def world_map_render():
+def render_world_map_1():
     return complex_1_map_section
 
-def world_map_2_render():
+def render_world_map_2():
     return complex_2_map_section
 
-def world_map_3_render():
+def render_world_map_3():
     return complex_3_map_section
 
-def world_map_4_render():
+def render_world_map_4():
     return complex_4_map_section
