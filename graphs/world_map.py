@@ -260,7 +260,7 @@ complex_query_section = dbc.Container(
             ]
         ),
     ],
-    # className = 'scatter-plot-container'
+    className = 'scatter-plot-container'
 )
 
 def render():
