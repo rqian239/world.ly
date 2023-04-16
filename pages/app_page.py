@@ -71,6 +71,7 @@ def app_page(app: dash.Dash):
     scatter_plot_section = scatter_plot.render()
     world_map_2_metrics_section = world_map.world_map_render()
     world_map_fig_2_metrics_second_section = world_map.world_map_2_render()
+    world_map_3 = world_map.world_map_3_render()
     
     # world_map_fig = px.scatter_geo(df, locations = 'CODE',
     #                     color='ENTITY',
@@ -250,5 +251,5 @@ def app_page(app: dash.Dash):
     #         ),
     #     ]
     # )
-    layout = html.Div([nav, scatter_plot_section, world_map_2_metrics_section, world_map_fig_2_metrics_second_section, ftr], className="make-footer-stick")
+    layout = html.Div([nav, scatter_plot_section, world_map_2_metrics_section, world_map_fig_2_metrics_second_section, world_map_3, ftr], className="make-footer-stick")
     return layout
