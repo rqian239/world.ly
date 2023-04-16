@@ -35,16 +35,13 @@ df_animation = functions.query_db(query_string_for_animation)
 
 def app_page(app: dash.Dash):
 
+    # LINE GRAPH SECTION
+    # line_graph_section = 
+
     # SCATTER PLOT SECTION
     scatter_plot_section = scatter_plot.render()
 
     # COMPLEX QUERY SECTION
-
-    # world_map_2_metrics_section = world_map.world_map_render()
-    # world_map_fig_2_metrics_second_section = world_map.world_map_2_render()
-    # world_map_3 = world_map.world_map_3_render()
-    # world_map_4 = world_map.world_map_4_render()
-
     complex_query_section = world_map.render()
     
 
