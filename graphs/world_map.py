@@ -136,7 +136,9 @@ world_map_for_complex_1.update_layout(width=1250, height=800)
 
 complex_1_map_section = html.Div(children=[
         html.H1("Countries Constituting the Majority of Global Greenhouse Gas Emissions along with their Total Electricity Generation Quantity (TWh) and Primary Source"),
-        dcc.Graph(id='data-visualization', figure=world_map_for_complex_1)
+        dcc.Graph(id='data-visualization', figure=world_map_for_complex_1),
+        html.Br(),
+        html.P(r"The map displays the countries which in combination constitute 90% of the world's Carbon Dioxide emissions in a particular year (i.e., the largest carbon polluters). Additionally, for each of those countries, the total CO2 emission for the particular is are displayed in metric tons, as is the total electricity production (of the country) in TWh and the primary source of electricity.")
 ], className="centered")
 
 # ---------------------------------------------------------------------------------------------- FIRST GLOBE ----------------------------------------------------------------------------------------------
@@ -160,6 +162,8 @@ world_map_for_complex_2.update_layout(width=1250, height=800)
 complex_2_map_section = html.Div(children=[
         html.H1("Countries in the 90+ percentile for life expectancy for each year, along with the difference in their public health expenditure compared to the year's average"),
         dcc.Graph(id='data-visualization', figure=world_map_for_complex_2),
+        html.Br(),
+        html.P(r"The map displays countries in the 90+ percentile for life expectancy for each year, along with the difference in their public health expenditure compared to the year's average (as percent of GDP).")
 ], className="centered")
 
 # ---------------------------------------------------------------------------------------------- SECOND GLOBE ----------------------------------------------------------------------------------------------
@@ -180,6 +184,8 @@ world_map_for_complex_3.update_layout(width=1250, height=800)
 complex_3_map_section = html.Div(children=[
         html.H1("Country with Highest GDP for each Continent along with Corresponding Percent Growth in GDP and Difference in Per Capita Energy Use Compared to the Content's Average"),
         dcc.Graph(id='data-visualization', figure=world_map_for_complex_3),
+        html.Br(),
+        html.P(r"The map displays the country in each continent that has the highest real GDP per capita, along with the corresponding value (in 2016 USD) and the difference between its per capita energy use (in TWh) and that of the average of the year within the respective continent.")
 ], className="centered")
 # ---------------------------------------------------------------------------------------------- THIRD GLOBE ----------------------------------------------------------------------------------------------
 
@@ -201,6 +207,8 @@ world_map_for_complex_4.update_layout(width=1250, height=800)
 complex_4_map_section = html.Div(children=[
         html.H1("Human Development Index (HDI)"),
         dcc.Graph(id='data-visualization', figure=world_map_for_complex_4),
+        html.Br(),
+        html.P(r"Human Development Index (HDI) is a metric developed and employed by the World Health Organization (WHO) designed to summarize composite indicators for the developmental status of humans, most often applied to countries. It is a function of life expectancy at birth, mean number of years in schooling, and Gross Nataional Income (GNI) per capita. The worldy team has created a pseudo-HDI based on life expectancy at birth, GNI per capita, and percent of the population with primary, secondary, and tertiary educations. Each component is weighted equally, and the education subset is also weighted equally between the three education levels. The index generated is therefore a composite measure in the form of a decimal between 0 and 1, with indices near the lower bound denoting a low composite developmental score and indices near the upper bound denoting a high composite developmental score. Note that the scale is relative and is capped at the maximum real-world values for the given year.")
 ], className="centered")
 
 # ---------------------------------------------------------------------------------------------- FOURTH GLOBE ----------------------------------------------------------------------------------------------
@@ -223,6 +231,8 @@ world_map_for_complex_5.update_layout(width=1250, height=800)
 complex_5_map_section = html.Div(children=[
                                     html.H1("Population Density Dependency of Associated Metrics"),
                                     dcc.Graph(id='data-visualization', figure=world_map_for_complex_5),
+                                    html.Br(),
+                                    html.P(r"The map displays countries and their respective population densities, as well as the following related parameters in terms of their deviation from the average on the given year, relative to all other countries on the continent: energy consumption per capita in kwh, forest area in km, deforestation in square km, percent of adults who are overweight, CO2 emissions in metric tons, and average literacy rate.")
                                 ], className="centered")
 
 # ---------------------------------------------------------------------------------------------- FIFTH GLOBE ----------------------------------------------------------------------------------------------
@@ -235,6 +245,10 @@ complex_query_section = dbc.Container(
         dbc.Row(
             dbc.Col(
                 [
+                html.H1('Visualize Complex Queries with an Interactive Globe'),
+                html.Br(),
+                html.Br(),
+                html.Br(),
                 html.H4('Use the dropdown to select complex insights into our demographic data.'),
                 dcc.Dropdown(
                     id=ids.COMPLEX_QUERY_DROPDOWN,
