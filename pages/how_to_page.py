@@ -56,11 +56,11 @@ body = dbc.Container(
                         html.Br(),
                         html.Br(),
                         html.Br(),
-                        html.H3("Select the metrics you want to compare"),
+                        html.H3("Explore relationships between relevant parameters"),
                         html.Hr(),
                         html.P(
                             """\
-                            Visualize the trend of the metrics by creating your own complex query!
+                            Visualize the trend between metrics over time on a dynamic scatter plot
                             """,
                         ),
                         html.Br(),
@@ -78,13 +78,13 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Use the play/pause buttons to see the trend of the metrics over the years
+                            ◉   Use the play/pause buttons to see the trend of the metrics over the years available
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Hovering over each dot will display each country and its specifc data relating to the metrics
+                            ◉   Hovering over each dot will display the country and its resepctive data on both parameters
                             """,
                         ),
                     ]
@@ -132,7 +132,7 @@ body = dbc.Container(
                         html.Br(),
                         html.Br(),
                         html.Br(),
-                        html.H3("Visually interpret complex queries using a globe"),
+                        html.H3("Visually interpret complex queries using a dynamic globe"),
                         html.Hr(),
                         html.P(
                             """\
@@ -142,13 +142,13 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Select one of our specific complex queries
+                            ◉   Select one of our complex queries
                             """,
                         ),
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Click and hold the globe to navigate around 
+                            ◉   Click and hold the globe to pan/navigate around 
                             """,
                         ),
                         html.Br(),
@@ -160,7 +160,7 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Each dot's size will vary based on the size of the metric tracked
+                            ◉   Each dot's size will vary based on the magnitude of the corresponding metric tracked
                             """,
                         ),
                         html.Br(),
@@ -172,7 +172,7 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Select the play/pause button (represented by symbols) to see the trend change over time
+                            ◉   Select the play/pause button (represented by symbols) to visualize the trend change over time
                             """,
                         ),
                     ]
