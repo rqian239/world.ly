@@ -184,7 +184,7 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 2 (Health):  Metrics in Sector 2 include public health, diseases, overweight, deaths by, etc.
+                            ◉   Sector 2 (Health):  Metrics in Sector 2 include public health, diseases, obesity, deaths by, etc.
                             """,
                         ),
                         html.Br(),
