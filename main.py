@@ -21,6 +21,7 @@ import graphs.scatter_plot as scatter_plot
 import numpy as np
 import data
 import graphs.world_map as world_map
+import graphs.line_graph as line_graph
 
 from pages.about_page import query_for_all_tuples
 
@@ -207,7 +208,8 @@ def update_scatter_plot(metric, sorting_option):
     if metric is None or sorting_option is None:
         return html.Div([html.H3('Please choose from the two dropdowns to create the data visualizations')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
-        return html.Div([html.H3('SELECTION')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
+        return line_graph.render_line_graph(metric, sorting_option)
+        # return html.Div([html.H3('SELECTION')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
 
 if __name__ == '__main__':
     app.run()

@@ -100,10 +100,10 @@ def query_for_static_scatter_plot(parameter1, parameter2):
     parameter1 = functions.format_attribute_name_for_sql(parameter1)
     parameter2 = functions.format_attribute_name_for_sql(parameter2)
 
-    print(parameter1)
-    print(parameter2)
-    print(table1)
-    print(table2)
+    # print(parameter1)
+    # print(parameter2)
+    # print(table1)
+    # print(table2)
 
     query_string = f'SELECT continents.entity, table1.{parameter1} parameter1, table2.{parameter2} parameter2, table1.year ' \
     f'FROM {table1} table1, {table2} table2, (SELECT entity, code, continent FROM Continents) continents ' \
