@@ -203,12 +203,13 @@ def display_total_tuples(n_clicks):
 @app.callback(
     Output(ids.LINE_GRAPH_CONTAINER, 'children'),
     [Input(ids.LINE_GRAPH_DROPDOWN, 'value'),
-        Input(ids.SORTING_DROPDOWN, 'value')])
-def update_scatter_plot(metric, sorting_option):
-    if metric is None or sorting_option is None:
+        Input(ids.TOP_BOTTOM_DROPDOWN, 'value'),
+        Input(ids.LINE_GRAPH_NUMBER_RESTRICTION_DROPDOWN, 'value')])
+def update_scatter_plot(metric, sorting_option, restriction_number):
+    if metric is None or sorting_option is None or restriction_number is None:
         return html.Div([html.H3('Please choose from the two dropdowns to create the data visualizations')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
-        return line_graph.render_line_graph(metric, sorting_option)
+        return line_graph.render_line_graph(metric, sorting_option, restriction_number)
         # return html.Div([html.H3('SELECTION')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
 
 if __name__ == '__main__':

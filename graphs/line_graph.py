@@ -24,7 +24,7 @@ line_graph_section = dbc.Container([
         dbc.Row(
             dbc.Col(
                 [
-                    html.H4('Choose a metric.'),
+                    html.H4('Use the dropdowns to choose the top/bottom countries for a given metric.'),
                     dcc.Dropdown(
                         id=ids.LINE_GRAPH_DROPDOWN,
                         options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
@@ -35,8 +35,17 @@ line_graph_section = dbc.Container([
                     html.Br(),
                     html.Br(),
                     dcc.Dropdown(
-                        id=ids.SORTING_DROPDOWN,
-                        options=[{'label': i, 'value': i} for i in data.line_graph_options],
+                        id=ids.TOP_BOTTOM_DROPDOWN,
+                        options=[{'label': i, 'value': i} for i in data.line_graph_top_bottom],
+                        value=None,
+                        multi=False,
+                        className = 'dropdown-style',
+                    ),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Dropdown(
+                        id=ids.LINE_GRAPH_NUMBER_RESTRICTION_DROPDOWN,
+                        options=[{'label': i, 'value': i} for i in data.line_graph_number_options],
                         value=None,
                         multi=False,
                         className = 'dropdown-style',
@@ -74,15 +83,15 @@ def query_for_line_graph(parameter):
 def render():
     return line_graph_section
 
-def render_line_graph(parameter, sorting_option):
+def render_line_graph(parameter, sorting_option, restriction_number):
 
     table_with_the_parameter = data.attribute_table_dict[parameter]
     formatted_parameter = functions.format_attribute_name_for_sql(parameter).upper()
 
-    if sorting_option == data.line_graph_options[0]:
+    if sorting_option == data.line_graph_top_bottom[0]:
         # TOP 10
         ordering = 'DESC'
-    elif sorting_option == data.line_graph_options[1]:
+    elif sorting_option == data.line_graph_top_bottom[1]:
         # BOTTOM 10
         ordering = 'ASC'
     else:
@@ -92,7 +101,7 @@ def render_line_graph(parameter, sorting_option):
     query_string = f'SELECT entity, year, {formatted_parameter} FROM ' \
                     f'( SELECT continents.entity, continents.code, placeholder_table.year, placeholder_table.{formatted_parameter} , RANK() OVER(PARTITION BY year ORDER BY placeholder_table.{formatted_parameter} {ordering}) rank_num '\
                     f'FROM {table_with_the_parameter} placeholder_table, (SELECT entity, code, continent FROM Continents) continents '\
-                    f'WHERE year >= 1900 AND placeholder_table.{formatted_parameter} IS NOT NULL AND placeholder_table.code NOT LIKE \'%OWID%\' AND placeholder_table.code = continents.code ) WHERE rank_num<=3'
+                    f'WHERE year >= 1900 AND placeholder_table.{formatted_parameter} IS NOT NULL AND placeholder_table.code NOT LIKE \'%OWID%\' AND placeholder_table.code = continents.code ) WHERE rank_num<={restriction_number}'
 
     print(query_string)
     

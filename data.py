@@ -92,8 +92,16 @@ complex_queries = [
     "Population Density Dependency of Associated Metrics",
 ]
 
-line_graph_options = [
-    "Top 3",
-    "Bottom 3"
+line_graph_top_bottom = [
+    "Top Countries",
+    "Bottom Countries"
+]
+
+line_graph_number_options = [
+    "1",
+    "3",
+    "5",
+    "10",
+    "25"
 ]
 
