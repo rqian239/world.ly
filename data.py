@@ -85,12 +85,23 @@ attribute_table_dict = {
 }
 
 complex_queries = [
-
     "Major Greenhouse Emitters with their Electricity Generation and Source",
     "Highest Life Expectancies & Difference in Public Health Expenditure",
     "Country with Highest GDP and Associated Parameters Per Continent",
     "Human Development Index",
     "Population Density Dependency of Associated Metrics",
-
-
 ]
+
+line_graph_top_bottom = [
+    "Top Countries",
+    "Bottom Countries"
+]
+
+line_graph_number_options = [
+    "1",
+    "3",
+    "5",
+    "10",
+    "25"
+]
+

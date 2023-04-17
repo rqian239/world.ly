@@ -16,6 +16,7 @@ import functions
 import data
 import graphs.scatter_plot as scatter_plot
 import graphs.world_map as world_map
+import graphs.line_graph as line_graph
 
 nav = navbar()
 ftr = footer()
@@ -35,18 +36,15 @@ df_animation = functions.query_db(query_string_for_animation)
 
 def app_page(app: dash.Dash):
 
+    # LINE GRAPH SECTION
+    line_graph_section = line_graph.render()
+
     # SCATTER PLOT SECTION
     scatter_plot_section = scatter_plot.render()
 
     # COMPLEX QUERY SECTION
-
-    # world_map_2_metrics_section = world_map.world_map_render()
-    # world_map_fig_2_metrics_second_section = world_map.world_map_2_render()
-    # world_map_3 = world_map.world_map_3_render()
-    # world_map_4 = world_map.world_map_4_render()
-
     complex_query_section = world_map.render()
     
 
-    layout = html.Div([nav, scatter_plot_section, complex_query_section, ftr], className="make-footer-stick")
+    layout = html.Div([nav, line_graph_section, scatter_plot_section, complex_query_section, ftr], className="make-footer-stick")
     return layout

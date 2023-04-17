@@ -132,6 +132,8 @@ body = dbc.Container(
                             className="btn btn-lg btn-primary total-tuples-button-about-page",
                             type="button"
                         ),
+                        html.Br(),
+                        html.Br(),
                         html.Div(
                             id=ids.TOTAL_NUMBER_TUPLES_CONTAINER,
                         )
@@ -145,7 +147,6 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [   
-                        html.Br(),
                         html.Br(),
                         html.Br(),
                         html.Br(),
@@ -183,7 +184,7 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 2 (Health):  Metrics in Sector 2 include public health, diseases, overweight, deaths by, etc.
+                            ◉   Sector 2 (Health):  Metrics in Sector 2 include public health, diseases, obesity, deaths by, etc.
                             """,
                         ),
                         html.Br(),
