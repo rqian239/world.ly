@@ -132,6 +132,8 @@ body = dbc.Container(
                             className="btn btn-lg btn-primary total-tuples-button-about-page",
                             type="button"
                         ),
+                        html.Br(),
+                        html.Br(),
                         html.Div(
                             id=ids.TOTAL_NUMBER_TUPLES_CONTAINER,
                         )
@@ -145,7 +147,6 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [   
-                        html.Br(),
                         html.Br(),
                         html.Br(),
                         html.Br(),
