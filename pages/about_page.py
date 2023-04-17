@@ -208,7 +208,7 @@ body = dbc.Container(
                         html.Br(),
                         html.P(
                             """\
-                            ◉   Sector 6 (Enviroment): Metrics in Sector 6 include forest area, deforestation, land area, precipitation, etc.
+                            ◉   Sector 6 (Environment): Metrics in Sector 6 include forest area, deforestation, land area, precipitation, etc.
                             """,
                         ),
                     ],

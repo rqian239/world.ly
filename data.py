@@ -30,7 +30,6 @@ attribute_table_dict = {
     'Number Without Access to Safe Drinking Water' : 'PopWithoutAccessToSafeDrinkingWater',
     'Percent of Population that Smokes' : 'ShareOfSmokers',
     'Percent of Agricultural Land Irrigated' : 'AgriculturalIrrigation',
-    'Plastic Pollution kg' : 'PlasticPollution',
     'CO2 Emissions Metric Tons' : 'CarbonFootprint',
     'Number with Post Secondary Education' : 'PopulationBreakdownByHighestLevelOfEducationAchievedForThoseAged15In',
     'Number with Secondary Education' : 'PopulationBreakdownByHighestLevelOfEducationAchievedForThoseAged15In',

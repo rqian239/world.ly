@@ -45,7 +45,6 @@ def footer():
                                 html.P("Richard Qian"),
                                 html.P("William Sobczak"),
                                 html.P("Nikhil Pandya"),
-                                html.P("Nicholas Borowski"),
                             ]),
                             className="centered"
                         ),

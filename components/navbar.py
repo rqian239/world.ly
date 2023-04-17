@@ -14,7 +14,7 @@ def navbar():
         children=[
             dbc.NavItem(dbc.NavLink(label, href=link_href, style=link_style)) for label, link_href in nav_items
         ],
-        brand="world.ly",
+        brand="world.ly 🌎",
         brand_href="/",
         sticky="top",
         color='primary',

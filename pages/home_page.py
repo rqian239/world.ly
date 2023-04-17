@@ -135,7 +135,7 @@ body = dbc.Container(
                 ),
                 dbc.Col(
                     [
-                        html.H3("Enviroment"),
+                        html.H3("Environment"),
                         DashIconify(
                             icon="mdi:pine-tree-variant",
                             width=50,
