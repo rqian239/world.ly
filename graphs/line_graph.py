@@ -84,16 +84,20 @@ def render_line_graph(parameter, sorting_option, restriction_number):
 
     table_with_the_parameter = data.attribute_table_dict[parameter]
     formatted_parameter = functions.format_attribute_name_for_sql(parameter).upper()
+    top_or_bottom = ''
 
     if sorting_option == data.line_graph_top_bottom[0]:
         # TOP 10
         ordering = 'DESC'
+        top_or_bottom = 'Top'
     elif sorting_option == data.line_graph_top_bottom[1]:
         # BOTTOM 10
         ordering = 'ASC'
+        top_or_bottom = 'Bottom'
     else:
         # DEFAULT: TOP 10
         ordering = 'DESC'
+        top_or_bottom = 'Top'
 
     query_string = f'SELECT entity, year, {formatted_parameter} FROM ' \
                     f'( SELECT continents.entity, continents.code, placeholder_table.year, placeholder_table.{formatted_parameter} , RANK() OVER(PARTITION BY year ORDER BY placeholder_table.{formatted_parameter} {ordering}) rank_num '\
@@ -112,6 +116,7 @@ def render_line_graph(parameter, sorting_option, restriction_number):
     fig = fig.update_layout(width=1250, height=800)
     fig.update_xaxes(title_text='Year')
     fig.update_yaxes(title_text=parameter)
+    fig.update_layout(title=f'{parameter} vs Time for the {top_or_bottom} {restriction_number} Countries')
 
     line_graph_figure = html.Div(children=[
             dcc.Graph(id='data-visualization', figure=fig)
