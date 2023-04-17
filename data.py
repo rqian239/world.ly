@@ -93,7 +93,7 @@ complex_queries = [
 ]
 
 line_graph_options = [
-    "Top 10",
-    "Bottom 10"
+    "Top 3",
+    "Bottom 3"
 ]
 

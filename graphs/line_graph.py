@@ -89,11 +89,10 @@ def render_line_graph(parameter, sorting_option):
         # DEFAULT: TOP 10
         ordering = 'DESC'
 
-    query_string = f'WITH desired_codes AS ( SELECT code FROM (     SELECT code, AVG({formatted_parameter}) avg_parameter_value     ' \
-                    f'FROM {table_with_the_parameter}     WHERE code NOT LIKE \'%OWID%\'     ' \
-                    f'GROUP BY code     HAVING AVG({formatted_parameter}) IS NOT NULL     ORDER BY avg_parameter_value {ordering}     FETCH FIRST 10 ROWS ONLY ) )  ' \
-                    f'SELECT continents.entity, year, {formatted_parameter} FROM {table_with_the_parameter}, desired_codes, (SELECT entity, code, continent FROM Continents) continents ' \
-                    f'WHERE {table_with_the_parameter}.code = desired_codes.code AND {formatted_parameter} IS NOT NULL AND continents.code = {table_with_the_parameter}.code'
+    query_string = f'SELECT entity, year, {formatted_parameter} FROM ' \
+                    f'( SELECT continents.entity, continents.code, placeholder_table.year, placeholder_table.{formatted_parameter} , RANK() OVER(PARTITION BY year ORDER BY placeholder_table.{formatted_parameter} {ordering}) rank_num '\
+                    f'FROM {table_with_the_parameter} placeholder_table, (SELECT entity, code, continent FROM Continents) continents '\
+                    f'WHERE year >= 1900 AND placeholder_table.{formatted_parameter} IS NOT NULL AND placeholder_table.code NOT LIKE \'%OWID%\' AND placeholder_table.code = continents.code ) WHERE rank_num<=3'
 
     print(query_string)
     
