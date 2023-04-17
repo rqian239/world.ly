@@ -24,7 +24,7 @@ line_graph_section = dbc.Container([
         dbc.Row(
             dbc.Col(
                 [
-                    html.H4('Use the dropdowns to choose the top/bottom countries for a given metric.'),
+                    html.H4('Select the parameter to view over time, as well as which subset of countries to display.'),
                     dcc.Dropdown(
                         id=ids.LINE_GRAPH_DROPDOWN,
                         options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
@@ -76,9 +76,6 @@ line_graph_section = dbc.Container([
     className = 'scatter-plot-container'
 )
 
-def query_for_line_graph(parameter):
-    return
-
 
 def render():
     return line_graph_section
@@ -117,7 +114,6 @@ def render_line_graph(parameter, sorting_option, restriction_number):
     fig.update_yaxes(title_text=parameter)
 
     line_graph_figure = html.Div(children=[
-            html.H1("Line Graph"),
             dcc.Graph(id='data-visualization', figure=fig)
     ], className="centered")
 
