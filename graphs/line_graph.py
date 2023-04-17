@@ -20,7 +20,35 @@ import data
 blank_df = pd.DataFrame()
 blank_fig = px.line(blank_df)
 
-line_graph_section = None
+line_graph_section = dbc.Container([
+        dbc.Row(
+            dbc.Col(
+                [
+                    html.H4('Choose a metric.'),
+                    dcc.Dropdown(
+                        id=ids.LINE_GRAPH_DROPDOWN,
+                        options=[{'label': i, 'value': i} for i in data.attribute_table_dict.keys()],
+                        value=None,
+                        multi=False,
+                        className = 'dropdown-style',
+                    ),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Dropdown(
+                        id=ids.SORTING_DROPDOWN,
+                        options=[{'label': i, 'value': i} for i in data.line_graph_options],
+                        value=None,
+                        multi=False,
+                        className = 'dropdown-style',
+                    ),
+                ],
+                style={'margin-top': '50px', 'margin-bottom': '50px'},
+                className='centered'
+            )
+        ),
+],
+    className = 'scatter-plot-container'
+)
 
 def render():
     return line_graph_section
