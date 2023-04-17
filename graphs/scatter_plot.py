@@ -39,6 +39,10 @@ scatter_plot_section = dbc.Container(
         dbc.Row(
             dbc.Col(
                 [
+                html.H1('Compare Two Parameters Over Time'),
+                html.Br(),
+                html.Br(),
+                html.Br(),
                 html.H4('Choose two metrics.'),
                 dcc.Dropdown(
                     id=ids.SCATTER_PLOT_DROPDOWN_1,

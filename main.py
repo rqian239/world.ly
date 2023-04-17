@@ -207,7 +207,7 @@ def display_total_tuples(n_clicks):
         Input(ids.LINE_GRAPH_NUMBER_RESTRICTION_DROPDOWN, 'value')])
 def update_line_graph(metric, sorting_option, restriction_number):
     if metric is None or sorting_option is None or restriction_number is None:
-        return html.Div([html.H3('Please choose from the two dropdowns to create the data visualizations')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
+        return html.Div([html.H3('Please choose from the two dropdowns to create a line graph to compare countries.')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
         return line_graph.render_line_graph_country(metric, sorting_option, restriction_number)
         # return html.Div([html.H3('SELECTION')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})

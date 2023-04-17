@@ -24,6 +24,10 @@ line_graph_section = dbc.Container([
         dbc.Row(
             dbc.Col(
                 [
+                    html.H1('Visualization of a Parameter over Time'),
+                    html.Br(),
+                    html.Br(),
+                    html.Br(),
                     html.H4('Select the parameter to view over time, as well as which subset of countries to display.'),
                     dcc.Dropdown(
                         id=ids.LINE_GRAPH_DROPDOWN,
@@ -151,8 +155,8 @@ def render_line_graph_continent(parameter):
     df = functions.query_db(query_string_continent)
     df = df.sort_values(by=['YEAR'])
 
-    print(query_string_continent)
-    print(df.head(100))
+    # print(query_string_continent)
+    # print(df.head(100))
 
     fig_continent = px.line(df, x="YEAR", y=f'AVG({formatted_parameter})', color="CONTINENT", line_group="CONTINENT", hover_name="CONTINENT")
     fig_continent = fig_continent.update_layout(width=1250, height=800)
