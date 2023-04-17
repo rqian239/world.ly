@@ -61,7 +61,7 @@ def display_page(pathname):
     Output(ids.STATIC_SCATTER_PLOT_CONTAINER, 'children'),
     [Input(ids.SCATTER_PLOT_DROPDOWN_1, 'value'),
         Input(ids.SCATTER_PLOT_DROPDOWN_2, 'value')])
-def update_scatter_plot(metric_1, metric_2):
+def update_line_graph(metric_1, metric_2):
     if metric_1 is None or metric_2 is None:
         return html.Div([html.H3('Please select two metrics to create a scatter plot. Use the dropdowns above.')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
@@ -205,12 +205,23 @@ def display_total_tuples(n_clicks):
     [Input(ids.LINE_GRAPH_DROPDOWN, 'value'),
         Input(ids.TOP_BOTTOM_DROPDOWN, 'value'),
         Input(ids.LINE_GRAPH_NUMBER_RESTRICTION_DROPDOWN, 'value')])
-def update_scatter_plot(metric, sorting_option, restriction_number):
+def update_line_graph(metric, sorting_option, restriction_number):
     if metric is None or sorting_option is None or restriction_number is None:
         return html.Div([html.H3('Please choose from the two dropdowns to create the data visualizations')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
     else:
-        return line_graph.render_line_graph(metric, sorting_option, restriction_number)
+        return line_graph.render_line_graph_country(metric, sorting_option, restriction_number)
         # return html.Div([html.H3('SELECTION')], style={'textAlign': 'center', 'margin-top': '50px', 'margin-bottom': '50px'})
+
+# CALLBACK FOR THE CONTINENT LINE GRAPH
+@app.callback(
+    Output(ids.CONTINENT_LINE_GRAPH_CONTAINER, 'children'),
+        [Input(ids.LINE_GRAPH_DROPDOWN, 'value')])
+def update_continent_line_graph(metric):
+    if metric is None:
+        return None
+    else:
+        return line_graph.render_line_graph_continent(metric)
+
 
 if __name__ == '__main__':
     app.run()
