@@ -122,6 +122,22 @@ body = dbc.Container(
                             """,
                         ),
                     ]
+                ),
+                dbc.Col(
+                    [   
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Img(
+                        src="assets\images\line-graph-example.jpg",
+                        width="100%",
+                        height="auto",
+                        className=""
+                        )
+                    ],
+                    className="centered",
                 )
             ]
         ),
@@ -176,6 +192,22 @@ body = dbc.Container(
                             """,
                         ),
                     ]
+                ),
+                dbc.Col(
+                    [   
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Img(
+                        src="assets\images\world-map-example.jpg",
+                        width="100%",
+                        height="auto",
+                        className=""
+                        )
+                    ],
+                    className="centered",
                 )
             ]
         ),
