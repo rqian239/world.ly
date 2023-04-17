@@ -54,6 +54,64 @@ body = dbc.Container(
                         html.Br(),
                         html.Br(),
                         html.Br(),
+                        html.H3("Explore change over time of a parameter"),
+                        html.Hr(),
+                        html.P(
+                            """\
+                            Visualize your parameter on two line graphs, the first displaying countries and the second displaying the continent
+                            """,
+                        ),
+                                                html.Br(),
+                        html.P(
+                            """\
+                            ◉   From the first drowndop, select the metric from our broad array of choices which you would like to visualize
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   From the second dropdown, select whether you would like to visualize the countries with highest values for the given parameter ("Top Countries") or those with the lowest values ("Bottom Countries") on the first graph
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   From the third dropdown, select how many countries you would like to view on the first graph
+                            """,
+                        ),
+                        html.Br(),
+                        html.P(
+                            """\
+                            ◉   With all three dropboxes filled, you may now observe the change over time on both custimized country subset views as well as continent averages
+                            """,
+                        ),
+                    ]
+                ),
+                dbc.Col(
+                    [   
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
+                        html.Img(
+                        src="assets\images\line-graph-example.jpg",
+                        width="100%",
+                        height="auto",
+                        className=""
+                        )
+                    ],
+                    className="centered",
+                )
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        html.Br(),
+                        html.Br(),
+                        html.Br(),
                         html.Br(),
                         html.Br(),
                         html.H3("Explore relationships between relevant parameters"),
@@ -98,40 +156,6 @@ body = dbc.Container(
                         html.Br(),
                         html.Img(
                         src="assets\images\scatter-plot-example.jpg",
-                        width="100%",
-                        height="auto",
-                        className=""
-                        )
-                    ],
-                    className="centered",
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.H3("See the trend with a timeline"),
-                        html.Hr(),
-                        html.P(
-                            """\
-                            Description here.
-                            """,
-                        ),
-                    ]
-                ),
-                dbc.Col(
-                    [   
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Img(
-                        src="assets\images\line-graph-example.jpg",
                         width="100%",
                         height="auto",
                         className=""
