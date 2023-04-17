@@ -46,7 +46,24 @@ line_graph_section = dbc.Container([
                 className='centered'
             )
         ),
-],
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        html.Div(
+                            children=[
+                                dcc.Graph(
+                                    id=ids.LINE_GRAPH,
+                                    figure=blank_fig,
+                                ),
+                            ],
+                            id=ids.LINE_GRAPH_CONTAINER,
+                        )
+                    ]
+                )
+            ]
+        ),
+    ],
     className = 'scatter-plot-container'
 )
 
