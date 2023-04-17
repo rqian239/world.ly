@@ -6,9 +6,9 @@
 
 2. Install the latest version of Python from the Microsoft Store (Version 3.11 latest as of now)
 
-3. Add Python Installation path to Enviroment System Variables
-    - Search for 'Edit the system enviroment variables'
-    - Click 'Enviroment Variables' in the botton right corner
+3. Add Python Installation path to Environment System Variables
+    - Search for 'Edit the system environment variables'
+    - Click 'Environment Variables' in the botton right corner
     - Then under 'System variables', double-click the 'Path' variable
     - Select 'New' in the top right corner
     - Type the path of the python installation (i.e., C:\Program Files\Python311)
@@ -25,9 +25,9 @@
 
 6. Extract the contents of the Oracle Instant Client in the 'Oracle' folder (So, should have C:\Program Files\Oracle\instantclient_21_9)
 
-7. Add Oracle Instant Client to Enviroment System Variables
-    - Search for 'Edit the system enviroment variables'
-    - Click 'Enviroment Variables' in the botton right corner
+7. Add Oracle Instant Client to Environment System Variables
+    - Search for 'Edit the system environment variables'
+    - Click 'Environment Variables' in the botton right corner
     - Then under 'System variables', double-click the 'Path' variable
     - Select 'New' in the top right corner
     - Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
@@ -51,14 +51,14 @@
     
     'pip install -r requirements.txt'
     
-16. If prompted to, add any new paths in Enviroment System Variables, then re-run the last step
+16. If prompted to, add any new paths in Environment System Variables, then re-run the last step
 
 
 ## **Running On Local Host for Windows**
 
-1. Download ufl VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
+1. Download UFL VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
 
-2. Connect to ufl VPN by opening the Cisco AnyConnect Secure Mobility Client
+2. Connect to UFL VPN by opening the Cisco AnyConnect Secure Mobility Client
 
 3. Type 'vpn.ufl.edu' in the bar if prompted to and insert ufl credentials
 
@@ -100,7 +100,7 @@
 
 ## **Running On Local Host For Mac**
 
-1. Connect to ufl VPN.
+1. Connect to UFL VPN.
 2. Set environment variable
 
         export DYLD_LIBRARY_PATH="Instant Client Directory"
