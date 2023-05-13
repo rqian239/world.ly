@@ -111,11 +111,9 @@
    
 
 
-### **UFL CISE Oracle Database Server Used**
-Username: williamsobczak <br />
-Password= REBY7TpizLTdOp5dZHa9qJS0
-
-
 
 ### **Credits:**
-Created by Group 2 
+Created by Group 2
+Richard Qian
+William Sobczak
+Nikhil Pandya
