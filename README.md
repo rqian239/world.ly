@@ -3,21 +3,18 @@
 ## **Configuration Instructions For Windows**
 
 1. Clone the world.ly repository on your local device
+```console
+git clone https://github.com/rqian239/world.ly.git
+```
 
-2. Install the latest version of Python from the Microsoft Store (Version 3.11 latest as of now)
+2. Install the latest version of Python (Developed with Version 3.11). For an easy and beginner-friendly installation, you may get Python from the Microsoft Store (if on a Windows Machine).
 
-3. Add Python Installation path to Environment System Variables
-    - Search for 'Edit the system environment variables'
-    - Click 'Environment Variables' in the botton right corner
-    - Then under 'System variables', double-click the 'Path' variable
-    - Select 'New' in the top right corner
-    - Type the path of the python installation (i.e., C:\Program Files\Python311)
-    - Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
-    - To make sure Python has installed correctly, open a Command Prompt by typing 'Command Prompt' in the search bar
-    - Then type
-    
-            python --version
-    - If the version shows, Python has been installed correctly
+3. Add Python Installation to PATH variable.
+   To check if setup correctly, open type
+```console
+python --version
+pip --version
+```
     
 4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.html)
 
@@ -33,25 +30,25 @@
     - Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
     - Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
     
-10. Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+8.  Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-11. Open Visual Studio Installer and click the 'Available' tab
+9.  Open Visual Studio Installer and click the 'Available' tab
 
-12. Then install 'Visual Studio Community 2022' (latest year available)
-    - When propmpted to install workloads, select 'Desktop development with C++' 
+10. Then install 'Visual Studio Community 2022' (latest year available)
+    - When prompted to install workloads, select 'Desktop development with C++' 
     - If this is not prompted, finish installing 'Visual Studio Community 2022'
         - Then go to the 'Installed' tab and select 'Modify' under 'Visual Studio Community 2022'
         - Select the box labled 'Desktop development with C++' and install
 
-13. After installing open a new Command Prompt
+11. After installing open a new Command Prompt
 
-14. Navigate to the 'world.ly' repository (i.e., C:\world.ly)
+12. Navigate to the 'world.ly' repository (i.e., C:\world.ly)
 
-15. Run 
+13. Run 
     
     'pip install -r requirements.txt'
     
-16. If prompted to, add any new paths in Environment System Variables, then re-run the last step
+14. If prompted to, add any new paths in Environment System Variables, then re-run the last step
 
 
 ## **Running On Local Host for Windows**
@@ -65,8 +62,9 @@
 4. Open a Command Prompt and navigate to the world.ly repository (i.e., C:\world.ly)
 
 5. Run
-
-    python main.py
+```console
+python main.py
+```
     
 6. Open a web browser and type 'http://127.0.0.1:8050' in the URL 
 
@@ -108,12 +106,13 @@
 
         python3 app.py
 4. Open http://127.0.0.1:8050/ on a web browser
+5. Have fun with world.ly!
    
 
 
 
 ### **Credits:**
-Created by Group 2
+Created by Group 2<br>
 Richard Qian
 William Sobczak
 Nikhil Pandya
