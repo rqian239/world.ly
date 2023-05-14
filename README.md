@@ -2,15 +2,17 @@
 
 ## **Configuration Instructions For Windows**
 
-1. Clone the world.ly repository on your local device
+1. Clone the world.ly repository to your local machine.
 ```console
 git clone https://github.com/rqian239/world.ly.git
 ```
 
 2. Install the latest version of Python (Developed with Version 3.11). For an easy and beginner-friendly installation, you may get Python from the Microsoft Store (if on a Windows Machine).
 
-3. Add Python Installation to PATH variable.
-   To check if setup correctly, open type
+3. Add Python Installation to PATH environment variable.
+      - Here is a helpful link: https://www.educative.io/answers/how-to-add-python-to-path-variable-in-windows
+   
+   To check if setup correctly, open type in the command prompt
 ```console
 python --version
 pip --version
@@ -18,42 +20,33 @@ pip --version
     
 4. Download the Oracle Instant Client package from the Oracle website for Windows (https://www.oracle.com/database/technologies/instant-client/downloads.html)
 
-5. After downloading the Oracle Instant Client, make a new folder called 'Oracle' in your local drive's 'Program Files' (C:\Program Files\Oracle)
+5. Extract the contents of the Oracle Instant Client and place in a directory.
+   - For example, I placed the extracted install directory into an "Oracle" directory with path *D:\Program Files\Oracle\instantclient_21_9* on my Windows machine
 
-6. Extract the contents of the Oracle Instant Client in the 'Oracle' folder (So, should have C:\Program Files\Oracle\instantclient_21_9)
+6. Add Oracle Instant Client to PATH environment variable. 
+    - The steps are the same as adding your python installation to PATH. Except, add  the path of the oracle instant client installation (for example, D:\Program Files\Oracle\instantclient_21_9)
+  
+7.  Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-7. Add Oracle Instant Client to Environment System Variables
-    - Search for 'Edit the system environment variables'
-    - Click 'Environment Variables' in the botton right corner
-    - Then under 'System variables', double-click the 'Path' variable
-    - Select 'New' in the top right corner
-    - Type the path of the oracle installation (C:\Program Files\Oracle\instantclient_21_9)
-    - Click 'OK', then 'OK' again, and then 'OK' a third time to close all the windows
-    
-8.  Download Microsoft C++ Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-
-9.  Open Visual Studio Installer and click the 'Available' tab
-
-10. Then install 'Visual Studio Community 2022' (latest year available)
+8.  Install 'Visual Studio Community 2022' (or latest version) with the Visual Studio Installer. (https://visualstudio.microsoft.com/downloads/)
     - When prompted to install workloads, select 'Desktop development with C++' 
     - If this is not prompted, finish installing 'Visual Studio Community 2022'
         - Then go to the 'Installed' tab and select 'Modify' under 'Visual Studio Community 2022'
         - Select the box labled 'Desktop development with C++' and install
 
-11. After installing open a new Command Prompt
+9.  Open the cloned worldly project in your IDE (VSCode is recommended).
 
-12. Navigate to the 'world.ly' repository (i.e., C:\world.ly)
-
-13. Run 
+10. Open a command prompt or terminal in the project directory and run 
+```console
+pip install -r requirements.txt
+```
     
-    'pip install -r requirements.txt'
-    
-14. If prompted to, add any new paths in Environment System Variables, then re-run the last step
+11.   In functions.py, change the "path_of_oracle_instant_client" variable to the path of the oracle instant client on your machine.
 
 
 ## **Running On Local Host for Windows**
 
-1. Download UFL VPN, if you do not have (https://net-services.ufl.edu/provided-services/vpn/clients/)
+1. Download UFL VPN, if you do not have it (https://net-services.ufl.edu/provided-services/vpn/clients/)
 
 2. Connect to UFL VPN by opening the Cisco AnyConnect Secure Mobility Client
 
