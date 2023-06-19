@@ -1,5 +1,7 @@
 # world.ly
 
+You can visit world.ly [here](http://worldly.live/)!
+
 ## **Configuration Instructions For Windows**
 
 1. Clone the world.ly repository to your local machine.
