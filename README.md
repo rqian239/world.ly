@@ -1,6 +1,7 @@
 # world.ly
 
-You can visit world.ly [here](http://worldly.live/)!
+world.ly is now hosted on the web.
+You can visit world.ly [here](http://worldly.live/) or visit http://worldly.live on Google Chrome!
 
 ## **Configuration Instructions For Windows**
 
