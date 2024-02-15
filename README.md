@@ -110,7 +110,7 @@ Demographic data is accessed from a UFL CISE Oracle Database Server, which requi
 
 If you are unable to access the database, download [this SQL file](https://drive.google.com/file/d/1K6WxXwEoS9A_q16n0QVXxLz7tYWS55e-/view?usp=drive_link) to build the database.
 
-Use an Oracle SQL Database and modify the `cx_Oracle.connect` function with details of your user and database.
+Use an Oracle SQL Database and modify the `cx_Oracle.connect` function with details of your database.
 
 
 ### **Credits:**
