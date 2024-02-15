@@ -10,7 +10,7 @@ You can visit world.ly [here](http://worldly.live/) or visit http://worldly.live
 git clone https://github.com/rqian239/world.ly.git
 ```
 
-2. Install the latest version of Python (Developed with Version 3.11). For an easy and beginner-friendly installation, you may get Python from the Microsoft Store (if on a Windows Machine).
+2. Install Python (developed with Version 3.10.4).
 
 3. Add Python Installation to PATH environment variable.
       - Here is a helpful link: https://www.educative.io/answers/how-to-add-python-to-path-variable-in-windows
@@ -39,30 +39,30 @@ pip --version
 
 9.  Open the cloned worldly project in your IDE (VSCode is recommended).
 
-10. Open a command prompt or terminal in the project directory and run 
+10.  Open a command prompt or terminal in the project directory and run 
 ```console
 pip install -r requirements.txt
 ```
     
-11.   In functions.py, change the "path_of_oracle_instant_client" variable to the path of the oracle instant client on your machine.
+11.    In functions.py, change the "path_of_oracle_instant_client" variable to the path of the oracle instant client on your machine.
 
 
 ## **Running On Local Host for Windows**
 
 1. Download UFL VPN, if you do not have it (https://net-services.ufl.edu/provided-services/vpn/clients/)
 
-2. Connect to UFL VPN by opening the Cisco AnyConnect Secure Mobility Client
+2. Connect to UFL VPN using the Cisco AnyConnect Secure Mobility Client
 
 3. Type 'vpn.ufl.edu' in the bar if prompted to and insert ufl credentials
 
-4. Open a Command Prompt and navigate to the world.ly repository (i.e., C:\world.ly)
+4. Open a Command Prompt and navigate to the world.ly project root directory
 
 5. Run
 ```console
 python main.py
 ```
     
-6. Open a web browser and type 'http://127.0.0.1:8050' in the URL 
+6. Open http://127.0.0.1:8050/ in your web browser
 
 7. Have fun with world.ly!
 
@@ -101,14 +101,17 @@ python main.py
 3. In terminal, navigate to project directory and run the Python Dash App 
 
         python3 app.py
-4. Open http://127.0.0.1:8050/ on a web browser
+4. Open http://127.0.0.1:8050/ in your web browser
 5. Have fun with world.ly!
    
 
+## Database
+Demographic data is accessed from a UFL CISE Oracle Database Server, which requires the UF VPN or an on-campus network.
+
+If you are unable to access the database, download [this SQL file](https://drive.google.com/file/d/1K6WxXwEoS9A_q16n0QVXxLz7tYWS55e-/view?usp=drive_link) to build the database.
+
+Use an Oracle SQL Database and modify the `cx_Oracle.connect` function with details of your user and database.
 
 
 ### **Credits:**
-Created by Group 2<br>
-Richard Qian
-William Sobczak
-Nikhil Pandya
+Created by Richard Qian, William Sobczak, and Nikhil Pandya
